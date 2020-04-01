@@ -59,8 +59,9 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
+    @import "../assets/stylus/color.styl"
     .my-family-page
-        background #f1f1f1
+        background $bgTheme
         height 100%
         overflow hidden
 
@@ -89,7 +90,7 @@ export default {
         align-items center
         border-radius 2vw
         background #fff
-        padding 3vw 0
+        padding 1vh 0
         font-size 4vw
 
         span

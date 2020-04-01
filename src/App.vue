@@ -42,6 +42,7 @@ export default ({
 })
 </script>
 <style lang="stylus">
+    @import "assets/stylus/color.styl"
     #app
         font-family Avenir, Helvetica, Arial, sans-serif
         -webkit-font-smoothing antialiased
@@ -63,7 +64,7 @@ export default ({
             width: 100%;
             z-index: 1001;
             color #000
-            background-color: #ffffff;
+            background-color: $bgColor;
             border-top: 1px solid #e7e7e7;
             border-bottom: 1px solid #f8f8f8;
             justify-content: space-between;
