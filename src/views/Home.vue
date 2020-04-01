@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <span class="page-title">首页</span>
-    <Search class="sticky-top" />
+    <Sticky :offset-top="10"><Search class="sticky-top" /></Sticky>
     <MySwipe/>
     <ClassBtn/>
     <Picture/>
@@ -13,10 +13,12 @@ import Search from '../components/home/MySearch'
 import MySwipe from '../components/home/MySwipe'
 import ClassBtn from '../components/home/ClassBtn'
 import Picture from '../components/home/Picture'
+import { Sticky } from 'vant'
 
 export default {
   name: 'Index',
   components: {
+    Sticky,
     Search,
     MySwipe,
     ClassBtn,
@@ -25,13 +27,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-  .sticky-top
-    position fixed
-    top 7vh
-    z-index 3
-    width 100%
    #swipe
-     padding-top 6vh
     .van-swipe__indicators i
       width 6pt
       height 6pt

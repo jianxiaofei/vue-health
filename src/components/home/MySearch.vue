@@ -34,7 +34,7 @@ export default {
   .van-search__content
       background-color transparent
       border 1pt solid #ccc
-      border-radius 100pt
+      border-radius 100vw
       box-shadow 3pt 3pt 2pt 0 rgba(204, 204, 204, 0.29)
       text-align left
       font-size 14pt

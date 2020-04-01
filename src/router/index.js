@@ -32,6 +32,11 @@ const routes = [
     path: '/VideoClass',
     name: 'VideoClass',
     component: () => import('../views/VideoClass.vue')
+  },
+  {
+    path: '/MyCollect',
+    name: 'MyCollect',
+    component: () => import('../views/MyCollect.vue')
   }
 ]
 

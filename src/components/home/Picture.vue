@@ -37,8 +37,8 @@ export default {
 
 <style lang="stylus" scoped>
   #img-wrap
-    max-height 200vw
-    padding-bottom 20vw
+    min-height 50vh
+    padding-bottom 15vh
     position sticky
     top 0
     img
@@ -46,6 +46,6 @@ export default {
       height 30vw
       border-radius 5px
       display inline-flex
-      flex-direction left
-      margin 0 2pt
+      justify-content space-evenly
+      margin 0 1vw
 </style>

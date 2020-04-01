@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import { Toast, Lazyload } from 'vant'
+import { Toast, Dialog, Lazyload } from 'vant'
 Vue.use(Toast)
+Vue.use(Dialog)
 Vue.use(Lazyload)
 Vue.config.productionTip = false
 

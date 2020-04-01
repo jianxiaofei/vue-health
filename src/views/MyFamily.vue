@@ -1,39 +1,41 @@
 <template>
-  <div class="my-family-page">
-    <div class="container">
-      <div class="my-wrap-top">
-        <van-img round show-loading show-error width="5rem" height="5rem" class="my-picture"
-                 src="https://img.yzcdn.cn/vant/cat.jpeg"/>
-        <h4 class="my-name">用户名称</h4>
-        <VipCard :isVip="vip"/>
-      </div>
+    <div class="my-family-page">
+        <div class="container">
+            <div class="my-wrap-top">
+                <van-img round show-loading show-error width="5rem" height="5rem" class="my-picture"
+                         src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+                <h4 class="my-name">用户名称</h4>
+                <VipCard :isVip="vip"/>
+            </div>
+        </div>
+        <div class="my-content">
+            <p>
+                <Icon class="van-col--1" size="2rem" name="records"/>
+                <span>健康咨询记录</span>
+            </p>
+            <p>
+                <router-link :to="{ name: 'MyCollect', params: { type: ''}}" tag="p">
+                    <Icon class="van-col--1" size="2rem" name="bookmark-o"/>
+                    <span>我的收藏</span>
+                </router-link>
+            </p>
+            <p>
+                <Icon class="van-col--1" size="2rem" name="coupon-o"/>
+                <span>健康检测记录</span>
+            </p>
+        </div>
+        <div class="member-wrap">
+            <p>
+                <Icon size="2rem" name="friends-o"/>
+                <span>家庭成员管理</span>
+            </p>
+            <Divider/>
+            <p>
+                <Icon size="2rem" name="info-o"/>
+                <span>关于我们</span>
+            </p>
+        </div>
     </div>
-    <div class="my-content">
-      <p>
-        <Icon class="van-col--1" size="2rem" name="records"/>
-        <span>健康咨询记录</span>
-      </p>
-      <p>
-        <Icon class="van-col--1" size="2rem" name="bookmark-o"/>
-        <span>我的收藏</span>
-      </p>
-      <p>
-        <Icon class="van-col--1" size="2rem" name="coupon-o"/>
-        <span>健康检测记录</span>
-      </p>
-    </div>
-    <div class="member-wrap">
-      <p>
-        <Icon size="2rem" name="friends-o"/>
-        <span>家庭成员管理</span>
-      </p>
-      <Divider/>
-      <p>
-        <Icon size="2rem" name="info-o"/>
-        <span>关于我们</span>
-      </p>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -57,60 +59,61 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
-  .my-family-page
-    background #f1f1f1
-    height 100%
-    overflow hidden
+    .my-family-page
+        background #f1f1f1
+        height 100%
+        overflow hidden
 
-    .my-wrap-top
-      display flex
-      justify-items center
-      align-items center
-      padding 6vw 0 25vw 0
-      background-color #4b70ea
-      width 100%
-      height 25vw
-      position relative
-      z-index 1
-      overflow hidden
+        .my-wrap-top
+            display flex
+            justify-items center
+            align-items center
+            padding 6vw 0 25vw 0
+            background-color #4b70ea
+            width 100%
+            height 25vw
+            position relative
+            z-index 1
+            overflow hidden
 
-      .my-picture
-        margin-left 12pt
+            .my-picture
+                margin-left 12pt
 
-  h4
-    margin-left 5vw
-    color #fff
+    h4
+        margin-left 5vw
+        color #fff
 
-  .my-content
-    display flex
-    justify-content space-around
-    border-radius 2vw
-    background #fff
-    padding 6vw 0
-    font-size 4vw
+    .my-content
+        display flex
+        justify-content space-around
+        align-items center
+        border-radius 2vw
+        background #fff
+        padding 3vw 0
+        font-size 4vw
 
-    span
-      display block
+        span
+            display block
 
-  .member-wrap
-    margin-top 2vw
-    background #fff
-    border-radius 2vw
-    height auto
-    font-size 5vw
+    .member-wrap
+        margin-top 2vw
+        background #fff
+        border-radius 2vw
+        height auto
+        font-size 5vw
 
-    p
-      margin 0
-      padding 3vw
-      text-align left
-      display flex
-      align-items center
+        p
+            margin 0
+            padding 3vw
+            text-align left
+            display flex
+            align-items center
 
-      span
-        margin-left 12pt
+            span
+                margin-left 12pt
 
-    .van-divider
-      margin 0 auto
-      width 90%
-      align-items center
+        .van-divider
+            margin 0 auto
+            width 90%
+            align-items center
 </style>

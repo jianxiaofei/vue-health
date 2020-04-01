@@ -35,8 +35,8 @@ export default {
 <style lang="stylus" scoped>
   #swipe
     .van-swipe
-      height 106pt
-      margin 0 10pt 0 10pt
+      height 24vh
+      margin 0 0 0 0
 
       .van-swipe__track
         .van-swipe-item

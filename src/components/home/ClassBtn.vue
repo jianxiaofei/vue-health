@@ -1,24 +1,30 @@
 <template>
-  <div id="btn-icon">
-    <p>
-      <router-link :to="{ name: 'VideoClass', params: { type: 1, title: '宝贝指南' }}">
-        <Icon class="baby" name="points"/>
-        宝贝指南
-      </router-link>
-    </p>
-    <p>
-      <Icon class="old-age" name="gem-o"/>
-      老年保健
-    </p>
-    <p>
-      <Icon class="female" name="like-o"/>
-      女性宝典
-    </p>
-    <p>
-      <Icon class="wiki" name="video-o"/>
-      健康百科
-    </p>
-  </div>
+    <div id="btn-video-class">
+        <p>
+            <router-link :to="{ name: 'VideoClass', params: { type: 1, title: '宝贝指南' }}">
+                <Icon class="baby" name="points"/>
+                宝贝指南
+            </router-link>
+        </p>
+        <p>
+            <router-link :to="{ name: 'VideoClass', params: { type: 2, title: '老年保健' }}">
+                <Icon class="old-age" name="gem-o"/>
+                老年保健
+            </router-link>
+        </p>
+        <p>
+            <router-link :to="{ name: 'VideoClass', params: { type: 3, title: '女性宝典' }}">
+                <Icon class="female" name="like-o"/>
+                女性宝典
+            </router-link>
+        </p>
+        <p>
+            <router-link :to="{ name: 'VideoClass', params: { type: 4, title: '健康百科' }}">
+                <Icon class="wiki" name="video-o"/>
+                健康百科
+            </router-link>
+        </p>
+    </div>
 </template>
 
 <script>
@@ -34,26 +40,29 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  #btn-icon
-    p
-      display inline-block
-      margin 3vw 4.8vw
-      font-size 3vw
+    #btn-video-class
+        display flex
+        justify-content space-evenly
+        flex-wrap nowrap
+        justify-items center
+        p
+            font-size 3vw
+            word-break keep-all
 
-      i
-        font-size 8vw
-        padding-bottom 10px
-        display block
+            i
+                font-size 8vw
+                padding-bottom 10px
+                display block
 
-      .baby
-        color #48fffa
+            .baby
+                color #48fffa
 
-      .old-age
-        color #6bff67
+            .old-age
+                color #6bff67
 
-      .female
-        color #ff67a4
+            .female
+                color #ff67a4
 
-      .wiki
-        color #599cff
+            .wiki
+                color #599cff
 </style>
