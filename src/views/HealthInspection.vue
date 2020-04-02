@@ -23,7 +23,7 @@
         :show="show"
         close-button-text="完成"
         z-index="9999"
-        @blur="inputBlur === true ? show = false : null"
+        @blur="show = !inputBlur"
         @input="onInput"
         @delete="onDelete"
         transition
@@ -65,6 +65,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  $commColor = #4b70ea
   .container
     display flex
     flex-direction column
@@ -74,7 +75,7 @@ export default {
     .input-tip
       margin 8vw 0 5vw 0
     .van-field
-      border 1px solid #4b70ea
+      border 1px solid $commColor
       background-color #fff
       border-radius 100pt
       width auto
@@ -85,17 +86,17 @@ export default {
       font-size 4.5vw
     button[type='submit']
       margin 3vw  auto
-      background-color #4b70ea
+      background-color $commColor
     button[type='button']
-      color #4b70ea
-      border-color #4b70ea
+      color $commColor
+      border-color $commColor
     .tip
       font-size 4.3vw
       margin 0 8vw
       text-align left
       span
-        color #4b70ea
-        border-bottom 1px solid #4b70ea
+        color $commColor
+        border-bottom 1px solid $commColor
         padding-bottom 2pt
         word-break keep-all
 </style>

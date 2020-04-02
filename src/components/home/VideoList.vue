@@ -9,7 +9,7 @@ import { PullRefresh } from 'vant'
 
 export default {
   props: ['item'],
-  name: 'Picture',
+  name: 'VideoList',
   components: { PullRefresh },
   data: function () {
     return {

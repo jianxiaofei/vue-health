@@ -36,7 +36,7 @@ export default {
   #swipe
     .van-swipe
       height 24vh
-      margin 0 0 0 0
+      margin 0
 
       .van-swipe__track
         .van-swipe-item

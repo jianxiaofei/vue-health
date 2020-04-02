@@ -4,7 +4,7 @@
     <Sticky :offset-top="10"><Search class="sticky-top" /></Sticky>
     <MySwipe/>
     <ClassBtn/>
-    <Picture/>
+    <VideoList/>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 import Search from '../components/home/MySearch'
 import MySwipe from '../components/home/MySwipe'
 import ClassBtn from '../components/home/ClassBtn'
-import Picture from '../components/home/Picture'
+import VideoList from '../components/home/VideoList'
 import { Sticky } from 'vant'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     Search,
     MySwipe,
     ClassBtn,
-    Picture
+    VideoList
   }
 }
 </script>

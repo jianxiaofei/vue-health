@@ -19,12 +19,12 @@
         <p></p>
       </div>
     </div>
-    <detailsx :doctorData="doctorData" :isShow="show"/>
+    <DoctorDetails :doctorData="doctorData" :isShow="show"/>
   </div>
 </template>
 
 <script>
-import detailsx from './Details'
+import DoctorDetails from './DoctorDetails'
 
 export default {
   props: {
@@ -34,7 +34,7 @@ export default {
     }
   },
   name: 'doctors',
-  components: { detailsx },
+  components: { DoctorDetails },
   data: function () {
     return {
       show: false,

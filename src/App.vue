@@ -51,31 +51,27 @@ export default ({
         color #2c3e50
         overflow hidden
 
-        -webkit-scrollbar {
-            display: none;
-        }
-
-        #nav
-            box-sizing: border-box;
-            display: flex;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            z-index: 1001;
-            color #000
-            background-color: $bgColor;
-            border-top: 1px solid #e7e7e7;
-            border-bottom: 1px solid #f8f8f8;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 6vw;
-            padding-top: 8pt;
-
         .page-title
             padding 3vw 0
             display block
             font-size 5vw
+
+        #nav
+            box-sizing: border-box
+            display: flex
+            position: fixed
+            left: 0
+            bottom: 0
+            width: 100%
+            z-index: 1001
+            border 1px solid transparent
+            border-top-color #e7e7e7
+            border-bottom-color #f8f8f8
+            justify-content: space-evenly
+            align-items: center
+            padding: 3vw 0
+            color #000
+            background-color: $bgColor
 
         a
             color #000

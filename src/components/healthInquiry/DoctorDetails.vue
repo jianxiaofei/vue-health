@@ -32,17 +32,17 @@
         我要咨询
       </div>
     </Popup>
-    <online :showOnline="online" :lineDoctor="doctorData"/>
+    <InquiryCall :showOnline="online" :lineDoctor="doctorData"/>
   </div>
 </template>
 
 <script>
 import { Popup, Icon } from 'vant'
-import online from './Online'
+import InquiryCall from './InquiryCall'
 
 export default {
-  name: 'detailsx',
-  components: { Popup, Icon, online },
+  name: 'DoctorDetails',
+  components: { Popup, Icon, InquiryCall },
   props: {
     isShow: {
       type: Boolean,

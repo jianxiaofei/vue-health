@@ -2,7 +2,7 @@
     <div>
         <div class="top">
             <router-link to="/" id="back-arrow">
-                <Icon @click="backHome" class="back-btn" name="arrow-left"/>
+                <Icon class="back-btn" name="arrow-left"/>
             </router-link>
             <span class="page-title">{{this.$route.params.title}}</span>
         </div>
@@ -33,10 +33,7 @@ export default {
       list: []
     }
   },
-  methods: {
-    backHome () {
-    }
-  },
+  methods: {},
   beforeMount () {
     for (let i = 10; i--;) {
       this.list.push({

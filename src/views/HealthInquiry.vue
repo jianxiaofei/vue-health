@@ -12,14 +12,14 @@
         {{val}}
       </Button>
     </div>
-    <Doctors :deptName="selectedDept"/>
+    <DoctorList :deptName="selectedDept"/>
   </div>
 </template>
 
 <script>
 import { Button } from 'vant'
 import TopArea from '../components/healthInquiry/TopArea'
-import Doctors from '../components/healthInquiry/Doctors'
+import DoctorList from '../components/healthInquiry/DoctorList'
 
 export default {
   name: 'HealInquiry',
@@ -33,7 +33,7 @@ export default {
   components: {
     Button,
     TopArea,
-    Doctors
+    DoctorList
   },
   methods: {
     updateDoctorList (depName, depIndex) {
