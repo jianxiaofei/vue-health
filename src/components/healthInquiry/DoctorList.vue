@@ -1,22 +1,23 @@
 <template>
   <div id="doctor-wrap">
     <div
-      v-for="(v,k) of doctorList"
-      :key="k"
-      @click="showDetail(v)"
-      class="doctor-item">
+            v-for="(v,k) of doctorList"
+            :key="k"
+            @click="showDetail(v)"
+            class="doctor-item">
       <img class="doctor-picture" src="https://img.yzcdn.cn/vant/apple-1.jpg" alt="">
-      <div class="doctor-intro-1">
-        <h4>{{v.name}} </h4>
-        <p>{{v.hosp}}</p>
-        <p>{{v.posn}}</p>
+      <div class="doctor-intro">
+        <p>
+          <span class="doctor-name">{{v.name}} </span>
+          <span class="doctor-inquiry-count">问诊量：{{v.askn}}（人）</span>
+        </p>
+        <p>
+          <span class="doctor-hosp">{{v.hosp}}</span>
+          <span class="doctor-dept">{{v.dept}}</span>
+        </p>
+        <p><span class="doctor-posn">{{v.posn}}</span></p>
         <input v-if="v.line " type="button" value="在线">
         <input v-else type="button" value="离线" disabled>
-      </div>
-      <div class="doctor-intro-2">
-        <p>问诊量： {{v.askn}}（人）</p>
-        <p>{{v.dept}}</p>
-        <p></p>
       </div>
     </div>
     <DoctorDetails :doctorData="doctorData" :isShow="show"/>
@@ -103,18 +104,21 @@ export default {
         border-radius 100%
         margin-right 5pt
 
-      .doctor-intro-1
+      .doctor-intro
         text-align left
 
-        h4, p, input
-          margin 0 0 3pt 0
-
-        h4
-          margin-bottom 7pt
-
         p
-          font-size 10pt
-
+          margin 1.6vw
+          font-size 3.3vw
+          word-break keep-all
+          span
+            display inline-block
+          span:first-child
+            width 20vw
+          span.doctor-name
+            font-size 4.4vw
+          span.doctor-inquiry-count
+            color #4b70ea
         input
           padding 0 6pt
           border-radius 100pt
@@ -123,19 +127,4 @@ export default {
 
         input[value='离线']
           background-color #ccc;
-
-      .doctor-intro-2
-        margin-left 10pt
-
-        p
-          margin 5.5pt 0 3pt 0
-          text-align left
-
-        p:first-child
-          color #1989fa
-          font-size 6pt
-
-        p:nth-child(2)
-          font-size 10pt
-
 </style>

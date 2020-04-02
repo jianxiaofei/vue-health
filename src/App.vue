@@ -34,7 +34,7 @@ export default ({
   methods: {},
   watch: {
     $route (e) {
-      var allFullscreenPage = ['MyCollect', 'VideoClass']
+      var allFullscreenPage = ['MyCollect', 'VideoClass', 'Inquiring']
       this.notFullScreenPage = !(allFullscreenPage.includes(e.name))
       console.log(e.name, this.notFullScreenPage)
     }
@@ -69,7 +69,7 @@ export default ({
             border-bottom-color #f8f8f8
             justify-content: space-evenly
             align-items: center
-            padding: 3vw 0
+            padding: 1vw 0
             color #000
             background-color: $bgColor
 

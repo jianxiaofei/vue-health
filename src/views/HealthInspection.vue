@@ -13,7 +13,7 @@
         autofocus
         border
       />
-      <div style="margin: 16px;">
+      <div>
         <Button round block type="info" native-type="submit">下一步</Button>
         <Button round plain type="info" native-type="button">输入数据</Button>
       </div>
@@ -32,7 +32,7 @@
         <p>温馨提示：</p>
         <p>1.39健康可支持检测3项数据（血糖，胆固醇，尿酸）</p>
         <p>2.针对高血糖，高血脂、痛风等患者能够有效及时的进行数据检测和分析</p>
-        <p>3.若你没有检测设备，请进入 <span href="#">获取设备方式>></span></p>
+        <p class="get-device-way">3.若你没有检测设备，请进入 <span>获取设备方式>></span></p>
       </div>
     </div>
   </div>
@@ -85,18 +85,21 @@ export default {
       width 35%
       font-size 4.5vw
     button[type='submit']
-      margin 3vw  auto
+      margin 5vw  auto
       background-color $commColor
     button[type='button']
       color $commColor
       border-color $commColor
     .tip
-      font-size 4.3vw
+      font-size 4vw
       margin 0 8vw
       text-align left
-      span
-        color $commColor
-        border-bottom 1px solid $commColor
-        padding-bottom 2pt
+      p.get-device-way
         word-break keep-all
+        text-align justify-all
+        span
+            color $commColor
+            border-bottom 1px solid $commColor
+            padding-bottom 2pt
+            word-break keep-all
 </style>
