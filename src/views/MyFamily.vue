@@ -4,14 +4,16 @@
             <div class="my-wrap-top">
                 <van-img round show-loading show-error width="5rem" height="5rem" class="my-picture"
                          src="https://img.yzcdn.cn/vant/cat.jpeg"/>
-                <h4 class="my-name">用户名称</h4>
-                <VipCard :isVip="vip"/>
+                <h4 class="my-name">{{UserInfo.name}}</h4>
+                <VipCard :isVip="UserInfo.isVip"/>
             </div>
         </div>
         <div class="my-content">
             <p>
-                <Icon class="van-col--1" size="2rem" name="records"/>
-                <span>健康咨询记录</span>
+                <router-link :to="{ name: 'UserRecord', params: { title: '问诊人员'}}">
+                    <Icon class="van-col--1" size="2rem" name="records"/>
+                    <span>健康咨询记录</span>
+                </router-link>
             </p>
             <p>
                 <router-link :to="{ name: 'MyCollect', params: { type: ''}}" tag="p">
@@ -20,49 +22,55 @@
                 </router-link>
             </p>
             <p>
-                <Icon class="van-col--1" size="2rem" name="coupon-o"/>
-                <span>健康检测记录</span>
+                <router-link :to="{ name: 'UserRecord', params: { title: '检测人员'}}" tag="p">
+                    <Icon class="van-col--1" size="2rem" name="coupon-o"/>
+                    <span>健康检测记录</span>
+                </router-link>
             </p>
         </div>
         <div class="member-wrap">
-            <p>
+            <router-link to="/MemberManage" tag="p">
                 <Icon size="2rem" name="friends-o"/>
                 <span>家庭成员管理</span>
-            </p>
+            </router-link>
             <Divider/>
-            <p>
+            <router-link to="/About" tag="p">
                 <Icon size="2rem" name="info-o"/>
                 <span>关于我们</span>
-            </p>
+            </router-link>
         </div>
     </div>
 </template>
 
 <script>
-import { Image, Icon, Divider } from 'vant'
-import VipCard from '../components/myFmily/VipCard'
+    import { Image, Icon, Divider } from 'vant'
+    import VipCard from '../components/myFmily/VipCard'
 
-export default {
-  name: 'index',
-  components: {
-    'van-img': Image,
-    Divider,
-    Icon,
-    VipCard
-  },
-  data () {
-    return {
-      vip: 0
+    export default {
+        name: 'index',
+        components: {
+            'van-img': Image,
+            Divider,
+            Icon,
+            VipCard
+        },
+        data () {
+            return {
+                vip: 0,
+                UserInfo: { type: Object }
+            }
+        },
+        beforeMount () {
+            this.UserInfo = JSON.parse(sessionStorage.getItem('UserInfo'))
+        }
     }
-  }
-}
 
 </script>
 <style lang="stylus" scoped>
     @import "../assets/stylus/color.styl"
     .my-family-page
         background $bgTheme
-        height 100%
+        height 100vh
         overflow hidden
 
         .my-wrap-top

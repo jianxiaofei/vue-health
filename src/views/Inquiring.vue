@@ -21,51 +21,51 @@
 </template>
 
 <script>
-import { Icon } from 'vant'
+    import { Icon } from 'vant'
 
-export default {
-  name: 'Inquiring',
-  prop: [],
-  components: { Icon },
-  data () {
-    return {
-      line: true,
-      hour: 0,
-      minute: 0,
-      second: 0
+    export default {
+        name: 'Inquiring',
+        props: [],
+        components: { Icon },
+        data () {
+            return {
+                line: true,
+                hour: 0,
+                minute: 0,
+                second: 0
+            }
+        },
+        methods: {
+            closeLine () {
+                this.$toast('问诊结束~')
+                this.line = false
+                this.$router.go(-1)
+            }
+        },
+        beforeMount () {
+            this.line = this.$route.params.isConnected
+        },
+        mounted () {
+            var that = this
+            setInterval(function () {
+                that.second++
+            }, 1000)
+        },
+        watch: {
+            second (newSecond) {
+                if (newSecond === 60) {
+                    this.second = 0
+                    this.minute += 1
+                }
+            },
+            minute (newMinute) {
+                if (newMinute === 60) {
+                    this.minute = 0
+                    this.hour += 1
+                }
+            }
+        }
     }
-  },
-  methods: {
-    closeLine () {
-      this.$toast('问诊结束~')
-      this.line = false
-      this.$router.go(-1)
-    }
-  },
-  beforeMount () {
-    this.line = this.$route.params.isConnected
-  },
-  mounted () {
-    var that = this
-    setInterval(function () {
-      that.second++
-    }, 1000)
-  },
-  watch: {
-    second (newSecond) {
-      if (newSecond === 60) {
-        this.second = 0
-        this.minute += 1
-      }
-    },
-    minute (newMinute) {
-      if (newMinute === 60) {
-        this.minute = 0
-        this.hour += 1
-      }
-    }
-  }
-}
 </script>
 <style lang="stylus" scoped>
     .doctor-camera

@@ -1,27 +1,22 @@
 <template>
-    <div class="full-screen">
-        <div class="top">
-            <router-link to="/MyFamily" id="back-arrow">
-                <Icon @click="backHome" class="back-btn" name="arrow-left"/>
-            </router-link>
-            <span class="page-title">我的收藏</span>
-        </div>
+    <div class="page">
+        <page-head title="我的收藏" back-page-name="MyFamily"/>
         <div class="container">
             <SwipeCell
-                    v-for="(item, index) of list"
-                    :key="index">
+                v-for="(item, index) of list"
+                :key="index">
                 <Card
-                        :title="item.title"
-                        class="goods-card"
-                        :thumb="item.img">
+                    :title="item.title"
+                    class="goods-card"
+                    :thumb="item.img">
                 </Card>
                 <template #right>
                     <Button
-                            @click="remove(index)"
-                            square
-                            text="删除"
-                            type="danger"
-                            class="delete-button"/>
+                        @click="remove(index)"
+                        square
+                        text="删除"
+                        type="danger"
+                        class="delete-button"/>
                 </template>
             </SwipeCell>
         </div>
@@ -29,72 +24,57 @@
 </template>
 
 <script>
-import { SwipeCell, Icon, Card, Button } from 'vant'
+    import { SwipeCell, Card, Button } from 'vant'
+    import pageHead from '../components/common/Head'
 
-export default {
-  name: 'MyCollect',
-  props: [],
-  components: {
-    Icon,
-    SwipeCell,
-    Card,
-    Button
-  },
-  data () {
-    return {
-      value: 1,
-      list: []
+    export default {
+        name: 'MyCollect',
+        props: [],
+        components: {
+            SwipeCell,
+            Card,
+            Button,
+            pageHead
+        },
+        data () {
+            return {
+                value: 1,
+                list: []
+            }
+        },
+        methods: {
+            backHome () {
+            },
+            remove (index) {
+                this.$dialog.confirm({
+                    message: '确定删除吗？'
+                }).then(() => {
+                    this.list.splice(index, 1)
+                })
+            }
+        },
+        beforeMount () {
+            for (let i = 10; i--;) {
+                this.list.push({
+                    id: i,
+                    img: 'https://img.yzcdn.cn/vant/cat.jpeg',
+                    title: i + '. 这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦',
+                    isCollect: Math.random() > 0.5
+                })
+            }
+        },
+        mounted () {
+        }
     }
-  },
-  methods: {
-    backHome () {
-    },
-    remove (index) {
-      this.$dialog.confirm({
-        message: '确定删除吗？'
-      }).then(() => {
-        this.list.splice(index, 1)
-      })
-    }
-  },
-  beforeMount () {
-    for (let i = 10; i--;) {
-      this.list.push({
-        id: i,
-        img: 'https://img.yzcdn.cn/vant/cat.jpeg',
-        title: i + '. 这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦这是一条视频哦',
-        isCollect: Math.random() > 0.5
-      })
-    }
-  },
-  mounted () {
-  }
-}
 </script>
 
 <style lang="stylus" scoped>
-    .top
-        display flex
-        align-items center
-        position fixed
-        width 100%
-        z-index 10000
-        background #fff
-        top 0
-
-        #back-arrow
-            position absolute
-
-        .page-title
-            width 100%
-
     .container
         background #f1f1f1
         position relative
-        margin 8vh 0 0 0
         padding-bottom 1vh
-        z-index 666
-
+        height 94.5vh
+        overflow scroll
         .van-swipe-cell
             margin 3vw 0
 

@@ -1,8 +1,8 @@
 <template>
     <Popup
-            v-model="show"
-            position="bottom"
-            :style="{ height: '100%' }">
+        v-model="show"
+        position="bottom"
+        :style="{ height: '100%' }">
         <img class="doctor-picture" v-lazy="lineDoctor.img" :key="lineDoctor.id">
         <p class="doctor-name">{{lineDoctor.name}}</p>
         <p class="line-tip">温馨提示：正在接通中，请稍等 <span class="dot"></span></p>
@@ -11,44 +11,44 @@
 </template>
 
 <script>
-import { Popup } from 'vant'
+    import { Popup } from 'vant'
 
-export default {
-  name: 'online',
-  components: { Popup },
-  props: {
-    showOnline: {
-      type: Boolean,
-      default: false
-    },
-    lineDoctor: {
-      type: Object
+    export default {
+        name: 'online',
+        components: { Popup },
+        props: {
+            showOnline: {
+                type: Boolean,
+                default: false
+            },
+            lineDoctor: {
+                type: Object
+            }
+        },
+        data () {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            closeLine () {
+                this.$toast('取消问诊~')
+                this.show = false
+            },
+            isConnected () {
+                this.$router.push({
+                    name: 'Inquiring',
+                    params: { isConnected: true }
+                })
+            }
+        },
+        watch: {
+            showOnline () {
+                this.show = true
+                setTimeout(this.isConnected, 6000)
+            }
+        }
     }
-  },
-  data () {
-    return {
-      show: false
-    }
-  },
-  methods: {
-    closeLine () {
-      this.$toast('取消问诊~')
-      this.show = false
-    },
-    isConnected () {
-      this.$router.push({
-        name: 'Inquiring',
-        params: { isConnected: true }
-      })
-    }
-  },
-  watch: {
-    showOnline () {
-      this.show = true
-      setTimeout(this.isConnected, 6000)
-    }
-  }
-}
 </script>
 
 <style lang="stylus" scoped>

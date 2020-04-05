@@ -39,6 +39,31 @@ const routes = [
     path: '/Inquiring',
     name: 'Inquiring',
     component: () => import('../views/Inquiring.vue')
+  },
+  {
+    path: '/UserRecord',
+    name: 'UserRecord',
+    component: () => import('../views/UserRecord.vue')
+  },
+  {
+    path: '/InputData',
+    name: 'InputData',
+    component: () => import('../views/InputData.vue')
+  },
+  {
+    path: '/MemberManage',
+    name: 'MemberManage',
+    component: () => import('../views/MemberManage.vue')
+  },
+  {
+    path: '/EditMember',
+    name: 'EditMember',
+    component: () => import('../views/EditMember.vue')
+  },
+  {
+    path: '/About',
+    name: 'About',
+    component: () => import('../views/About.vue')
   }
 ]
 

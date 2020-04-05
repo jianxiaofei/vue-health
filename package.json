@@ -50,7 +50,15 @@
     },
     "rules": {
       "semi": "off"
-    }
+    },
+    "overrides": [
+      {
+        "files": ["*.vue"],
+        "rules": {
+          "indent": "off"
+        }
+      }
+    ]
   },
   "browserslist": [
     "> 1%",

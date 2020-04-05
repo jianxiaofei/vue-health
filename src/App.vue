@@ -22,24 +22,33 @@
     </div>
 </template>
 <script>
-import { Icon } from 'vant'
+    import { Icon } from 'vant'
 
-export default ({
-  data () {
-    return {
-      notFullScreenPage: true
-    }
-  },
-  components: { Icon },
-  methods: {},
-  watch: {
-    $route (e) {
-      var allFullscreenPage = ['MyCollect', 'VideoClass', 'Inquiring']
-      this.notFullScreenPage = !(allFullscreenPage.includes(e.name))
-      console.log(e.name, this.notFullScreenPage)
-    }
-  }
-})
+    export default ({
+        data () {
+            return {
+                notFullScreenPage: true
+            }
+        },
+        components: { Icon },
+        methods: {},
+        watch: {
+            $route (e) {
+                var allFullscreenPage = [
+                    'MyCollect',
+                    'VideoClass',
+                    'Inquiring',
+                    'UserRecord',
+                    'InputData',
+                    'MemberManage',
+                    'About',
+                    'EditMember'
+                    ]
+                this.notFullScreenPage = !(allFullscreenPage.includes(e.name))
+                console.log(e.name, this.notFullScreenPage)
+            }
+        }
+    })
 </script>
 <style lang="stylus">
     @import "assets/stylus/color.styl"
@@ -50,11 +59,6 @@ export default ({
         text-align center
         color #2c3e50
         overflow hidden
-
-        .page-title
-            padding 3vw 0
-            display block
-            font-size 5vw
 
         #nav
             box-sizing: border-box
@@ -75,7 +79,7 @@ export default ({
 
         a
             color #000
-            font-size 11pt
+            font-size 4vw
 
             &.router-link-exact-active
             &:active
@@ -83,5 +87,5 @@ export default ({
 
             i
                 display block
-                font-size 20pt
+                font-size 7vw
 </style>
