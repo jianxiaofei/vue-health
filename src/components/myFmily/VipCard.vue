@@ -73,7 +73,7 @@ export default {
 
         .card-info
             position absolute
-            width 80%
+            width 80vw
             top 15vw
             left 10vw
             z-index 2
@@ -81,18 +81,18 @@ export default {
             display flex
             align-items center
             justify-content space-between
-
+            color #282828
             span
                 display block
-                font-size 4vw
+                font-size 4.2vw
                 margin-left 1vw
                 flex-grow 2
 
                 &.van-col--2
-                    font-size 3vw
+                    font-size 3.2vw
 
                 &.van-col--6
-                    font-size 3vw
+                    font-size 3.2vw
                     text-align right
                     flex-grow 6
 

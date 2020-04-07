@@ -9,7 +9,7 @@
                 <Icon name="desktop-o"/>
                 健康问诊
             </router-link>
-            <router-link to="/HealthInspection">
+            <router-link to="/HealthTest">
                 <Icon name="chart-trending-o"/>
                 健康检测
             </router-link>
@@ -59,6 +59,8 @@
         text-align center
         color #2c3e50
         overflow hidden
+        max-width 750px
+        margin 0 auto
 
         #nav
             box-sizing: border-box

@@ -12,11 +12,20 @@ Vue.config.productionTip = false
 sessionStorage.setItem('UserInfo', JSON.stringify({
   name: '窃瓦辛格',
   sex: '男',
-  picture: 'http://p.qpic.cn/music_cover/icLTHicH8iakBFAJbiazGT3DnywHfOoiaVzdZWJ4pVcDdoVCqlU5hLx8K7A/600?n=1',
+  picture: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=275643910,265451810&fm=11&gp=0.jpg',
   isVip: 1
 }))
-new Vue({
-  router,
-  render: h => h(App),
-  months: {}
-}).$mount('#app')
+// new Vue({
+//   router,
+//   render: h => h(App),
+//   months: {}
+// }).$mount('#app')
+
+document.addEventListener('deviceready', function () {
+  new Vue({
+    router,
+    render: h => h(App),
+    months: {}
+  }).$mount('#app')
+  window.navigator.splashscreen.hide()
+}, false)

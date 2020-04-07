@@ -1,9 +1,6 @@
 <template>
     <div class="page">
-        <div class="page-head">
-            <Icon @click="backPage" class="back-arrow" name="arrow-left"/>
-            <span class="page-title">输入数据</span>
-        </div>
+        <page-head title="输入数据" :back-page-name="this.$route.params.from"/>
         <main>
             <div class="input-data">
                 <!--选择检测时间-->
@@ -84,18 +81,18 @@
 </template>
 
 <script>
-    import { Icon, Field, Button, Popup, Picker, DatetimePicker } from 'vant'
-
+    import { Field, Button, Popup, Picker, DatetimePicker } from 'vant'
+    import pageHead from '../components/common/Head'
     export default {
         name: 'InputData',
         props: [],
         components: {
-            Icon,
             Field,
             Button,
             Popup,
             Picker,
-            DatetimePicker
+            DatetimePicker,
+            pageHead
         },
         data () {
             return {
@@ -186,24 +183,6 @@
     .page
         height 100vh
         background-color $bgTheme
-
-        .page-head
-            display flex
-            align-items center
-            width 100%
-            background #fff
-            font-size 5.2vw
-            padding 2vw 0
-
-            .back-arrow
-                position absolute
-                left 0.5vw
-                line-height 1
-
-                i.van-icon
-                    vertical-align middle
-            .page-title
-                width 100vw
 
         main
             background-color #fff

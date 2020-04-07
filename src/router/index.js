@@ -16,9 +16,9 @@ const routes = [
     component: () => import('../views/HealthInquiry.vue')
   },
   {
-    path: '/HealthInspection',
-    name: 'HealthInspection',
-    component: () => import('../views/HealthInspection.vue')
+    path: '/HealthTest',
+    name: 'HealthTest',
+    component: () => import('../views/HealthTest.vue')
   },
   {
     path: '/MyFamily',

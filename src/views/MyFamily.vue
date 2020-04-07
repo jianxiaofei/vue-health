@@ -2,8 +2,10 @@
     <div class="my-family-page">
         <div class="container">
             <div class="my-wrap-top">
-                <van-img round show-loading show-error width="5rem" height="5rem" class="my-picture"
-                         src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+                <van-img
+                    round show-loading show-error width="5rem" height="5rem"
+                    class="my-picture"
+                    :src="UserInfo.picture"/>
                 <h4 class="my-name">{{UserInfo.name}}</h4>
                 <VipCard :isVip="UserInfo.isVip"/>
             </div>
@@ -11,19 +13,19 @@
         <div class="my-content">
             <p>
                 <router-link :to="{ name: 'UserRecord', params: { title: '问诊人员'}}">
-                    <Icon class="van-col--1" size="2rem" name="records"/>
+                    <Icon class="van-col--1" size="2rem" name="graphic"/>
                     <span>健康咨询记录</span>
                 </router-link>
             </p>
             <p>
                 <router-link :to="{ name: 'MyCollect', params: { type: ''}}" tag="p">
-                    <Icon class="van-col--1" size="2rem" name="bookmark-o"/>
+                    <Icon class="van-col--1" size="2rem" name="bookmark"/>
                     <span>我的收藏</span>
                 </router-link>
             </p>
             <p>
                 <router-link :to="{ name: 'UserRecord', params: { title: '检测人员'}}" tag="p">
-                    <Icon class="van-col--1" size="2rem" name="coupon-o"/>
+                    <Icon class="van-col--1" size="2rem" name="coupon"/>
                     <span>健康检测记录</span>
                 </router-link>
             </p>
@@ -100,6 +102,8 @@
         background #fff
         padding 1vh 0
         font-size 4vw
+        i.van-icon
+            color #4b70ea
 
         span
             display block
@@ -123,6 +127,6 @@
 
         .van-divider
             margin 0 auto
-            width 90%
+            width 90vw
             align-items center
 </style>

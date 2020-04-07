@@ -15,7 +15,11 @@
             />
             <div>
                 <Button round block type="info" native-type="submit">下一步</Button>
-                <Button round plain type="info" native-type="button">输入数据</Button>
+                <Button
+                    :to="{name:'InputData',params:{from:'HealthTest'}}"
+                    round plain type="info" native-type="button">
+                    输入数据
+                </Button>
             </div>
             <!-- 输入数字小键盘 -->
             <NumberKeyboard

@@ -94,7 +94,7 @@
         },
         beforeMount () {
             var title = this.$route.params.title;
-            if (title === '检测人员') {
+            if (title === '检测人员' || !title) {
                 this.title = '检测人员'
                 this.page = 'TestMember'
             }

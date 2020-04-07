@@ -2,12 +2,10 @@
     <div>
         <div class="button-wrap">
             <Button @click="jumpDataArchive" round block type="info" native-type="default">数据归档</Button>
-            <router-link
-                :to="{name: 'InputData', params: { title: '检测人员', fromPage: 'UserRecord' }}"
-                tag="button"
-                class="van-button van-button--info van-button--normal van-button--plain van-button--round">
-                输入数据
-            </router-link>
+            <Button
+                :to="{name: 'InputData', params: { title: '检测人员', from: 'UserRecord' }}"
+                round block plain type="info" native-type="default">输入数据
+            </Button>
         </div>
         <div class="member-wrap">
             <div
