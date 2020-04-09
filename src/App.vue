@@ -27,11 +27,22 @@
     export default ({
         data () {
             return {
+                docHeight: window.screen.height,
                 notFullScreenPage: true
             }
         },
         components: { Icon },
         methods: {},
+        beforeMount () {
+            console.log(this.docHeight)
+        },
+        mounted () {
+            window.onresize = () => {
+                const _H = window.screen.height
+                this.notFullScreenPage = this.docHeight !== _H
+                console.log(this.docHeight)
+            }
+        },
         watch: {
             $route (e) {
                 const allFullscreenPage = [
@@ -45,6 +56,9 @@
                     'EditMember'
                     ]
                 this.notFullScreenPage = !(allFullscreenPage.includes(e.name))
+            },
+            docHeight (_new, _old) {
+                this.notFullScreenPage = _new === _old;
             }
         }
     })
@@ -68,7 +82,8 @@
             left: 0
             bottom: 0
             width: 100vw
-            height 6vh
+            height 8vh
+            padding 2vh auto
             z-index: 1001
             justify-content: space-around
             align-items: center

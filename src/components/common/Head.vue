@@ -31,10 +31,10 @@
     .page-head
         display flex
         align-items center
-        width 100%
+        width 100vw
         background #fff
         font-size 5.2vw
-        height 6vh
+        height 10vw
         .back-arrow
             position absolute
             left 0.5vw

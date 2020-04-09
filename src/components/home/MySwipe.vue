@@ -35,7 +35,7 @@ export default {
 <style lang="stylus" scoped>
   #swipe
     .van-swipe
-      height 24vh
+      height 35vw
       margin 0
 
       .van-swipe__track
