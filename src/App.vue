@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div id="nav" v-if="notFullScreenPage">
+        <nav v-if="notFullScreenPage">
             <router-link to="/">
                 <Icon name="wap-home"/>
                 首页
@@ -17,7 +17,7 @@
                 <Icon name="contact"/>
                 我的家
             </router-link>
-        </div>
+        </nav>
         <router-view/>
     </div>
 </template>
@@ -34,7 +34,7 @@
         methods: {},
         watch: {
             $route (e) {
-                var allFullscreenPage = [
+                const allFullscreenPage = [
                     'MyCollect',
                     'VideoClass',
                     'Inquiring',
@@ -45,7 +45,6 @@
                     'EditMember'
                     ]
                 this.notFullScreenPage = !(allFullscreenPage.includes(e.name))
-                console.log(e.name, this.notFullScreenPage)
             }
         }
     })
@@ -62,26 +61,23 @@
         max-width 750px
         margin 0 auto
 
-        #nav
+        nav
             box-sizing: border-box
             display: flex
             position: fixed
             left: 0
             bottom: 0
-            width: 100%
+            width: 100vw
+            height 6vh
             z-index: 1001
-            border 1px solid transparent
-            border-top-color #e7e7e7
-            border-bottom-color #f8f8f8
-            justify-content: space-evenly
+            justify-content: space-around
             align-items: center
-            padding: 1vw 0
             color #000
             background-color: $bgColor
 
         a
             color #000
-            font-size 4vw
+            font-size 3vw
 
             &.router-link-exact-active
             &:active
@@ -89,5 +85,5 @@
 
             i
                 display block
-                font-size 7vw
+                font-size 6vw
 </style>

@@ -49,11 +49,14 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "semi": "off"
+      "semi": "off",
+      "indent": "off"
     },
     "overrides": [
       {
-        "files": ["*.vue"],
+        "files": [
+          "*.vue"
+        ],
         "rules": {
           "indent": "off"
         }

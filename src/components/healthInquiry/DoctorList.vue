@@ -101,6 +101,7 @@
 
             img.doctor-picture
                 width 30vw
+                height 30vw
                 border-radius 100%
                 margin-right 5pt
 
@@ -129,6 +130,8 @@
                     border-radius 100pt
                     background-color #01d0a0
                     color #fff
+                    border none
+                    outline none
 
                 input[value='离线']
                     background-color #ccc;

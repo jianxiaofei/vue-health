@@ -3,36 +3,16 @@
         <page-head title="健康检测"/>
         <div class="container">
             <p class="input-tip">请输入拉雅健康仪的IMEI号</p>
-            <Field
-                v-model="value"
-                type="digit"
-                @focus="show = true"
-                @blur=" inputBlur = true"
-                placeholder="请输入数字号码"
-                clearable
-                autofocus
-                border
-            />
-            <div>
-                <Button round block type="info" native-type="submit">下一步</Button>
-                <Button
-                    :to="{name:'InputData',params:{from:'HealthTest'}}"
-                    round plain type="info" native-type="button">
-                    输入数据
-                </Button>
+            <Field clearable autofocus border
+                   v-model="value"
+                   type="digit"
+                   placeholder="请输入数字号码"/>
+            <div class="btn-wrap">
+                <Button round block type="info" native-type="submit" text="下一步"/>
+                <Button round plain type="info" native-type="button" text="输入数据"
+                        :to="{name:'InputData',params:{from:'HealthTest'}}"/>
             </div>
-            <!-- 输入数字小键盘 -->
-            <NumberKeyboard
-                v-model="value"
-                :show="show"
-                close-button-text="完成"
-                z-index="9999"
-                @blur="show = !inputBlur"
-                @input="onInput"
-                @delete="onDelete"
-                transition
-            />
-            <div class="tip">
+            <div class="warm-tip">
                 <p>温馨提示：</p>
                 <p>1.39健康可支持检测3项数据（血糖，胆固醇，尿酸）</p>
                 <p>2.针对高血糖，高血脂、痛风等患者能够有效及时的进行数据检测和分析</p>
@@ -43,85 +23,73 @@
 </template>
 
 <script>
-    import { NumberKeyboard, Field, Button } from 'vant'
+    import { Field, Button } from 'vant'
     import pageHead from '../components/common/Head'
 
     export default {
         name: 'Index',
         components: {
-            NumberKeyboard,
             Field,
             Button,
             pageHead
         },
         data () {
             return {
-                show: false,
-                value: '',
-                inputBlur: false
+                value: ''
             }
         },
-        methods: {
-            onInput (value) {
-            },
-            onDelete () {
-            }
-        }
+        methods: {}
     }
 </script>
 
 <style lang="stylus" scoped>
+
     @import "../assets/stylus/color.styl"
     $commColor = #4b70ea
+
     .page
         height 100vh
         overflow hidden
         background-color $bgTheme
         .container
-            height 94.5vh
-            display flex
-            flex-direction column
-            margin-top 8vh
-            overflow hidden
+            height 88vh
+            display grid
+            align-content space-between
             .input-tip
                 font-size 5vw
             .van-field
+                width auto
+                height 6vh
+                line-height 6vh
+                align-items center
+                margin 3vh 8vw
                 border 1px solid $commColor
                 background-color #fff
                 border-radius 100vh
-                width auto
-                height 6vh
-                line-height 1
-                align-items center
-                margin 3vh 8vw
 
             button
                 margin 2vh auto
-                width 35%
+                width 40vw
                 height 5vh
                 line-height 5vh
                 font-size 4.5vw
 
-            button[type='submit']
-                margin 5vw auto
-                background-color $commColor
+                &[type='submit']
+                    margin 5vw auto
+                    background-color $commColor
 
-            button[type='button']
-                color $commColor
-                border-color $commColor
+                &[type='button']
+                    color $commColor
+                    border-color $commColor
 
-            .tip
+            .warm-tip
                 font-size 4vw
                 margin 3.8vh 8vw
                 text-align left
 
-                p.get-device-way
+                p.get-device-way span
+                    color $commColor
+                    border-bottom 1px solid $commColor
+                    padding-bottom .3vw
                     word-break keep-all
-                    text-align justify-all
-
-                    span
-                        color $commColor
-                        border-bottom 1px solid $commColor
-                        padding-bottom 2pt
-                        word-break keep-all
 </style>

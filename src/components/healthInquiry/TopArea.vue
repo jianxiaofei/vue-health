@@ -68,18 +68,18 @@
             #department
                 border-radius 0
                 border 0
-                text-align justify-items
+                text-align center
                 margin 0 2.2vw 0 2.2vw
                 padding 0 2vw 2vw 2vw
 
                 .van-button
                     min-width 18vw
-                    height 40px
+                    height 9vw
+                    line-height 9vw
                     margin 1vw 0.6vw
-
-                .selected
-                    color #1989fa
-                    border-color #1989fa
+                    &.selected
+                        color #1989fa
+                        border-color #1989fa
 
         span.page-title
             display block

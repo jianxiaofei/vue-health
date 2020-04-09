@@ -34,7 +34,7 @@
         width 100%
         background #fff
         font-size 5.2vw
-        padding 2vw 0
+        height 6vh
         .back-arrow
             position absolute
             left 0.5vw
