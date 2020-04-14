@@ -1,6 +1,10 @@
 <template>
   <PullRefresh id="img-wrap" v-model="isLoading" @refresh="onRefresh">
-    <img v-for="(img, index) in imageList" v-lazy="img" :key="index">
+    <img
+        @click="jumpPlayer(val)"
+        v-for="(val, idx) of data"
+        v-lazy="`http://healthiptv-fs.langma.cn${val.img_url}`"
+        :key="idx">
   </PullRefresh>
 </template>
 
@@ -8,7 +12,9 @@
 import { PullRefresh } from 'vant'
 
 export default {
-  props: ['item'],
+  props: {
+    data: Array
+  },
   name: 'VideoList',
   components: { PullRefresh },
   data: function () {
@@ -25,6 +31,13 @@ export default {
         this.isLoading = false
         this.count++
       }, 1000)
+    },
+    jumpPlayer (val) {
+      const videoInfo = JSON.parse(val.inner_parameters)
+      this.$toast({
+        message: `跳转播放器播放视频: ${videoInfo.title}`
+      })
+      console.log(videoInfo)
     }
   },
   beforeMount () {

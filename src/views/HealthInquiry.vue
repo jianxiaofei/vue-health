@@ -1,18 +1,21 @@
 <template>
     <div id="inquiry">
-        <TopArea @sync-from-top-step="updateHotDeptFromTop" :selectedDept="selectedDept"/>
+        <TopArea
+            @sync-from-top-step="updateHotDeptFromTop"
+            :selectedDept="selectedDept"
+            :allDept="allDept"/>
         <div id="department" class="white">
             <Button
-                @click="updateDoctorList(val,idx)"
-                v-for="(val,idx) in hotDept"
-                :key="idx+1"
-                :class="[' dep-'+idx, {'selected': idx === selectedIdx}]"
+                @click="updateDoctorList(val)"
+                v-for="(val,idx) of hotDept"
+                :key="idx"
+                :class="[' dep-'+idx, {'selected': selectedDept.dept_id === val.dept_id}]"
                 round
                 type="default">
-                {{val}}
+                {{val.dept_name}}
             </Button>
         </div>
-        <DoctorList :deptName="selectedDept"/>
+        <DoctorList :data="doctorList"/>
     </div>
 </template>
 
@@ -20,14 +23,17 @@
     import { Button } from 'vant'
     import TopArea from '../components/healthInquiry/TopArea'
     import DoctorList from '../components/healthInquiry/DoctorList'
-
+    import axios from 'axios'
     export default {
         name: 'HealInquiry',
         data () {
             return {
-                selectedIdx: 0,
-                selectedDept: '',
-                hotDept: []
+                selectedDept: {
+                    type: Object
+                },
+                hotDept: [],
+                allDept: [],
+                doctorList: []
             }
         },
         components: {
@@ -36,42 +42,43 @@
             DoctorList
         },
         methods: {
-            updateDoctorList (depName, depIndex) {
-                this.selectedIdx = depIndex
-                this.selectedDept = depName
+            updateDoctorList (dept) {
+                this.selectedDept = dept
+                this.getDoctorList(dept)
             },
             /**
              * 点击选择科室弹框后更新新热门科室数据(把选择的科室放到最前边)
              */
-            updateHotDeptFromTop (dep) {
-                let tempIndex = ''
-                tempIndex = this.hotDept.indexOf(dep)
-                if (tempIndex > -1) {
-                    this.selectedIdx = tempIndex
-                    this.hotDept.length = 8
-                } else {
-                    this.selectedIdx = 0
-                    this.hotDept.unshift(dep)
+            updateHotDeptFromTop (dept) {
+                if (!this.hotDept.includes(dept)) {
+                    this.hotDept.unshift(dept)
                     this.hotDept.length = 8
                 }
-                this.selectedDept = dep
+                this.selectedDept = dept
+                this.getDoctorList(dept)
             },
-            /**
-             * @param dep
-             */
-            selectedHotDept (dep) {
-                this.selectedDept = dep
+            getDepartment () {
+                axios.get('data/department').then(data => {
+                    data = data.data.list
+                    const start = Math.floor(Math.random() * (data.length - 8))
+                    this.allDept = data
+                    this.hotDept = data.slice(start, start + 8) // 热门科室随机取8个
+                    this.selectedDept = this.hotDept[0]
+                    console.log(data)
+                })
+            },
+            getDoctorList (dept) {
+                axios.get('data/doctors').then(data => {
+                    data = data.data.list
+                    dept = dept || this.selectedDept
+                    this.doctorList = data.filter(item => item.department === dept.dept_name)
+                    console.log(this.doctorList, dept)
+                })
             }
-        },
-        mockData () {
-
         },
         beforeMount () {
-            // 模拟8个热门科室
-            for (let i = 8; i--;) {
-                this.hotDept.push('科室' + i)
-            }
-            this.selectedDept = this.hotDept[0]
+            this.getDepartment()
+            this.getDoctorList()
         }
     }
 </script>
@@ -79,7 +86,8 @@
 <style lang="stylus" scoped>
     #inquiry
         background-color rgba(166, 166, 166, 0.27)
-
+        height 100vh
+        overflow hidden
         #department
             background-color #fff
             border 1px solid rgba(204, 204, 204, 0.36)

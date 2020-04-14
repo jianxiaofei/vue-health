@@ -4,9 +4,9 @@
         <Sticky :offset-top="10">
             <Search class="sticky-top"/>
         </Sticky>
-        <MySwipe/>
-        <ClassBtn/>
-        <VideoList/>
+        <MySwipe :data="swipeData"/>
+        <ClassBtn :data="btnName"/>
+        <VideoList :data="videoListData"/>
     </div>
 </template>
 
@@ -17,6 +17,7 @@
     import ClassBtn from '@c/home/ClassBtn'
     import VideoList from '@c/home/VideoList'
     import { Sticky } from 'vant'
+    import axios from 'axios'
 
     export default {
         name: 'Index',
@@ -27,6 +28,23 @@
             MySwipe,
             ClassBtn,
             VideoList
+        },
+        data () {
+            return {
+                data: [],
+                btnName: [],
+                swipeData: [],
+                videoListData: []
+            }
+        },
+        beforeMount () {
+            axios.get('data/home').then(data => {
+                data = data.data.data.entry_list
+                this.data = data
+                this.swipeData = data[0].item_data
+                this.btnName = data[1].item_data.map(item => JSON.parse(item.inner_parameters).title)
+                this.videoListData = data[2].item_data
+            })
         }
     }
 </script>

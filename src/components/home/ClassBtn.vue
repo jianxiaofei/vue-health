@@ -1,29 +1,12 @@
 <template>
     <div id="btn-video-class">
-        <p>
-            <router-link :to="{ name: 'VideoClass', params: { type: 1, title: '宝贝指南' }}">
-                <Icon class="baby" name="points"/>
-                宝贝指南
+        <router-link tag="p"
+                     v-for="(val, idx) of data"
+                     :key="idx"
+                     :to="{ name: 'VideoClass', params: { type: idx+1, title: val }}">
+            <Icon :class="clsName[idx]" :name="icons[idx]"/>
+            {{val}}
             </router-link>
-        </p>
-        <p>
-            <router-link :to="{ name: 'VideoClass', params: { type: 2, title: '老年保健' }}">
-                <Icon class="old-age" name="gem-o"/>
-                老年保健
-            </router-link>
-        </p>
-        <p>
-            <router-link :to="{ name: 'VideoClass', params: { type: 3, title: '女性宝典' }}">
-                <Icon class="female" name="like-o"/>
-                女性宝典
-            </router-link>
-        </p>
-        <p>
-            <router-link :to="{ name: 'VideoClass', params: { type: 4, title: '健康百科' }}">
-                <Icon class="wiki" name="video-o"/>
-                健康百科
-            </router-link>
-        </p>
     </div>
 </template>
 
@@ -32,10 +15,20 @@ import { Icon } from 'vant'
 
 export default {
   name: 'VideoClass',
-  components: { Icon },
-  data () {
-    return { test: '123' }
-  }
+    components: { Icon },
+    props: {
+        data: Array
+    },
+    data () {
+        return {
+            icons: ['points', 'gem-o', 'like-o', 'video-o'],
+            clsName: ['baby', 'old-age', 'female', 'wiki']
+        }
+    },
+    created () {
+        console.log(this.data)
+    },
+    computed: {}
 }
 </script>
 

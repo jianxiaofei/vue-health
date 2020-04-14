@@ -1,26 +1,26 @@
 <template>
     <div id="doctor-wrap">
         <div
-            v-for="(v,k) of doctorList"
+            v-for="(v,k) of data"
             :key="k"
             @click="showDetail(v)"
             class="doctor-item">
-            <img class="doctor-picture" src="https://img.yzcdn.cn/vant/apple-1.jpg" alt="">
+            <img class="doctor-picture" :src="v.avatar_url" alt="">
             <div class="doctor-intro">
                 <p>
-                    <span class="doctor-name">{{v.name}} </span>
-                    <span class="doctor-inquiry-count">问诊量：{{v.askn}}（人）</span>
+                    <span class="doctor-name">{{v.doc_name}} </span>
+                    <span class="doctor-inquiry-count">问诊量：{{v.inquiry_num}}（人）</span>
                 </p>
                 <p>
-                    <span class="doctor-hosp">{{v.hosp}}</span>
-                    <span class="doctor-dept">{{v.dept}}</span>
+                    <span class="doctor-hosp">{{v.hospital}}</span>
+                    <span class="doctor-dept">{{v.department}}</span>
                 </p>
-                <p><span class="doctor-posn">{{v.posn}}</span></p>
-                <input v-if="v.line " type="button" value="在线">
-                <input v-else type="button" value="离线" disabled>
+                <p><span class="doctor-posn">{{v.job_title}}</span></p>
+                <input type="button" :value="+v.online_state===3?'在线':+v.online_state===2?'忙碌':'离线'">
             </div>
         </div>
-        <DoctorDetails :doctorData="doctorData" :isShow="show"/>
+        <DoctorDetails :doctor="doctorData" :isShow="show"/>
+        <div v-if="data.length===0">暂无数据~</div>
     </div>
 </template>
 
@@ -28,59 +28,23 @@
     import DoctorDetails from './DoctorDetails'
 
     export default {
-        props: {
-            deptName: {
-                type: String,
-                default: ''
-            }
-        },
         name: 'doctors',
         components: { DoctorDetails },
-        data: function () {
-            return {
-                show: false,
-                doctorList: [],
-                doctorData: {
-                    type: Object,
-                    default: null
-                }
+        props: {
+            data: {
+                type: Array
             }
         },
-        beforeMount () {
-            this.mockData()
+        data () {
+            return {
+                show: false,
+                doctorData: {}
+            }
         },
         methods: {
             showDetail (v) {
                 this.doctorData = v
                 this.show = !this.show
-            },
-            mockData () {
-                console.log(this.doctorList)
-                for (var i = 10; i--;) {
-                    let rand = ''
-                    rand = Math.random()
-                    this.doctorList.push({
-                        id: i,
-                        img: 'https://img.yzcdn.cn/vant/apple-1.jpg',
-                        name: '傲娇' + i,
-                        hosp: '39健康医院',
-                        dept: '全科',
-                        posn: '高级院士',
-                        line: rand > 0.5 ? 1 : 0,
-                        askn: parseInt(rand * 1000),
-                        goodAt: '擅长各种推拿，擅长各种推拿，擅长各种推拿擅长各种推拿擅长各种推拿',
-                        intro: '长得漂亮，长得帅，技术一流长得漂亮，长得帅，技术一流长得漂亮，长得帅，技术一流长得漂亮，长得帅，技术一流'
-                    })
-                }
-            }
-        },
-        watch: {
-            deptName: {
-                handler (newName, oldName) {
-                    this.doctorList = []
-                    this.mockData()
-                },
-                immediate: true
             }
         }
     }
@@ -88,7 +52,7 @@
 
 <style lang="stylus" scoped>
     #doctor-wrap
-        max-height 200vw
+        max-height 66vh
         overflow auto
         padding-bottom 20vw
 
@@ -118,12 +82,20 @@
 
                     span:first-child
                         width 20vw
+                        margin-right 3vw
 
                     span.doctor-name
                         font-size 4.4vw
 
                     span.doctor-inquiry-count
                         color #4b70ea
+
+                    span.doctor-hosp
+                    span.doctor-dept
+                    span.doctor-name
+                        overflow hidden
+                        text-overflow ellipsis
+                        white-space nowrap
 
                 input
                     padding 0 6pt
@@ -133,6 +105,13 @@
                     border none
                     outline none
 
-                input[value='离线']
-                    background-color #ccc;
+                input
+                    &[value='在线']
+                        background-color #14ccb0;
+
+                    &[value='忙碌']
+                        background-color #ffd700;
+
+                    &[value='离线']
+                        background-color #ccc;
 </style>

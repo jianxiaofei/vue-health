@@ -58,7 +58,7 @@
                 this.notFullScreenPage = !(allFullscreenPage.includes(e.name))
             },
             docHeight (_new, _old) {
-                this.notFullScreenPage = _new === _old;
+                // this.notFullScreenPage = _new === _old;
             }
         }
     })

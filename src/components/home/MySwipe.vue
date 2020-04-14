@@ -1,8 +1,8 @@
 <template>
     <div id="swipe">
         <Swipe :autoplay="3000">
-            <SwipeItem v-for="(image, index) in images" :key="index">
-                <img v-lazy="image"/>
+            <SwipeItem v-for="(val, idx) in data" :key="idx">
+                <img v-lazy="`http://healthiptv-fs.langma.cn${val.img_url}`"/>
             </SwipeItem>
         </Swipe>
     </div>
@@ -10,31 +10,24 @@
 
 <script>
 import { Swipe, SwipeItem } from 'vant'
-import axios from 'axios'
-
 export default {
   name: 'MySwipe',
   components: {
     Swipe,
     SwipeItem
   },
+    props: {
+        data: Array
+    },
+    created () {
+        console.log('MySwipe-data==>', this.data)
+    },
   data () {
     return {
-      images: [
-        'https://img.yzcdn.cn/vant/apple-1.jpg',
-        'https://img.yzcdn.cn/vant/apple-2.jpg'
-      ]
     }
-  },
-  beforeMount () {
-    this.test();
   },
   methods: {
     onChange (index) {
-    },
-    async test () {
-      const res = await axios.get('@r/api/data?test=123')
-      console.log(res)
     }
   }
 }

@@ -6,13 +6,13 @@
             <span class="page-title">选择科室</span>
             <div id="department" class="white">
                 <Button
-                    @click="hidePopup(val,idx)"
+                    @click="hidePopup(val)"
                     v-for="(val,idx) in allDept"
                     :key="idx"
-                    :class="[' dep-'+idx, {'selected': idx === selectedIdx}]"
+                    :class="[' dep-'+idx, {'selected': selectedDept.dept_id === val.dept_id}]"
                     round
                     type="default">
-                    {{val}}
+                    {{val.dept_name}}
                 </Button>
             </div>
         </Popup>
@@ -23,7 +23,12 @@
     import { Popup, Button, Icon } from 'vant'
 
     export default {
-        props: ['selectedDept'],
+        props: {
+            selectedDept: {
+                type: Object
+            },
+            allDept: Array
+        },
         name: 'top',
         components: {
             Popup,
@@ -32,26 +37,16 @@
         },
         data () {
             return {
-                show: false,
-                selectedIdx: 0,
-                allDept: ['全部科室']
+                show: false
             }
         },
         methods: {
             showPopup () {
-                let deptIdx = String
-                deptIdx = this.allDept.indexOf(this.selectedDept)
-                this.selectedIdx = deptIdx > -1 ? deptIdx : 0
                 this.show = true
             },
-            hidePopup (depName, depIndex) {
-                this.$emit('sync-from-top-step', depName)
+            hidePopup (dept) {
+                this.$emit('sync-from-top-step', dept)
                 this.show = false
-            }
-        },
-        beforeMount () {
-            for (let i = 20; i--;) {
-                this.allDept.push('科室' + i)
             }
         }
     }

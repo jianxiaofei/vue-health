@@ -1,0 +1,26 @@
+{
+  "result": 0,
+  "count": 2,
+  "list": [
+    {
+      "member_id": "1",
+      "measure_id": "00202004131011335357987982709",
+      "repast_id": "-1",
+      "timebucket_id": "2",
+      "paper_type": "4",
+      "env_temperature": "0",
+      "measure_data": "13.14",
+      "measure_dt": "2020-04-13 10:12:00"
+    },
+    {
+      "member_id": "1",
+      "measure_id": "00202004130956565652986212506",
+      "repast_id": "1",
+      "timebucket_id": "-1",
+      "paper_type": "1",
+      "env_temperature": "0",
+      "measure_data": "12.33",
+      "measure_dt": "2020-04-13 09:57:00"
+    }
+  ]
+}

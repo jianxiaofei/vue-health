@@ -9,21 +9,22 @@
           <Icon @click="hideDetails" class="back-btn" name="arrow-left"/>
         </div>
         <div>
-          <img class="doctor-picture" v-lazy="doctorData.img" :key="doctorData.id">
-          <p v-if="doctorData.line" class="doctor-line on">在线</p>
-          <p v-else class="doctor-line off">离线</p>
+          <img class="doctor-picture" v-lazy="doctor.avatar_url" :key="doctor.doc_id">
+          <p :class="['doctor-line', 'line-'+doctor.online_state]">
+            {{+doctor.online_state===3?'在线':+doctor.online_state===2?'忙碌':'离线'}}
+          </p>
         </div>
         <ul>
-          <li>{{doctorData.name}}</li>
-          <li>{{doctorData.dept}}</li>
-          <li>{{doctorData.posn}}</li>
-          <li>{{doctorData.hosp}}</li>
-          <li>问诊量：{{doctorData.askn}} （人）</li>
+          <li>{{doctor.doc_name}}</li>
+          <li>{{doctor.department}}</li>
+          <li>{{doctor.job_title}}</li>
+          <li>{{doctor.hospital}}</li>
+          <li>问诊量：{{doctor.inquiry_num}} （人）</li>
         </ul>
       </div>
       <div class="txt-wrap">
-        <p><span>擅长：</span>{{doctorData.goodAt}}</p>
-        <p><span>简介：</span>{{doctorData.intro}}</p>
+        <p><span>擅长：</span>{{doctor.good_disease}}</p>
+        <p><span>简介：</span>{{doctor.intro_desc}}</p>
       </div>
       <div
         @click="startInquiry"
@@ -32,7 +33,7 @@
         我要咨询
       </div>
     </Popup>
-    <InquiryCall :showOnline="online" :lineDoctor="doctorData"/>
+    <InquiryCall :showOnline="online" :lineDoctor="doctor"/>
   </div>
 </template>
 
@@ -48,7 +49,7 @@ export default {
       type: Boolean,
       default: false
     },
-    doctorData: {
+    doctor: {
       type: Object
     }
   },
@@ -60,7 +61,7 @@ export default {
   },
   methods: {
     startInquiry () {
-      if (this.doctorData.line === 0) {
+      if (+this.doctor.online_state === 0) {
         this.$toast({
           message: '当前医生不在线！',
           duration: 1000
@@ -126,12 +127,19 @@ export default {
       background-color #16c989
       position: relative
       bottom 15pt
+      &.line-3
+        background-color #14ccb0;
 
-    .off
-      background-color #ccc
+      &.line-2
+        background-color #ffd700;
+
+      &.line-0
+        background-color #ccc;
 
   .txt-wrap
     padding 20pt
+    max-height 60vh
+    overflow: scroll;
 
     p
       color #656565

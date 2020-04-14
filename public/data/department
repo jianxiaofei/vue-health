@@ -1,0 +1,228 @@
+{
+  "code": "0",
+  "message": "获取成功",
+  "list": [
+    {
+      "dept_id": "全科",
+      "dept_name": "全科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "口腔医学中心",
+      "dept_name": "口腔医学中心",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "体检科",
+      "dept_name": "体检科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "神经内科",
+      "dept_name": "神经内科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "肿瘤外科",
+      "dept_name": "肿瘤外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "消化内科",
+      "dept_name": "消化内科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "心血管内科",
+      "dept_name": "心血管内科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "神经外科",
+      "dept_name": "神经外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "药剂科",
+      "dept_name": "药剂科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "麻醉科",
+      "dept_name": "麻醉科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "介入科",
+      "dept_name": "介入科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "急诊医学科",
+      "dept_name": "急诊医学科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "病理科",
+      "dept_name": "病理科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "呼吸内科",
+      "dept_name": "呼吸内科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "外科",
+      "dept_name": "外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "泌尿外科",
+      "dept_name": "泌尿外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "儿科",
+      "dept_name": "儿科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "生殖医学科",
+      "dept_name": "生殖医学科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "肿瘤科",
+      "dept_name": "肿瘤科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "老年病科",
+      "dept_name": "老年病科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "普外科",
+      "dept_name": "普外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "医学检验科",
+      "dept_name": "医学检验科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "口腔颌面外科",
+      "dept_name": "口腔颌面外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "重症监护（ICU）",
+      "dept_name": "重症监护（ICU）",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "创伤骨科",
+      "dept_name": "创伤骨科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "血管外科",
+      "dept_name": "血管外科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "眼科",
+      "dept_name": "眼科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "感染科",
+      "dept_name": "感染科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "中医科",
+      "dept_name": "中医科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "妇产科",
+      "dept_name": "妇产科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "精神科",
+      "dept_name": "精神科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "其他科室",
+      "dept_name": "其他科室",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "肾内科",
+      "dept_name": "肾内科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "产科",
+      "dept_name": "产科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "内科",
+      "dept_name": "内科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "医疗美容科",
+      "dept_name": "医疗美容科",
+      "dept_intro": "",
+      "doc_count": 1
+    },
+    {
+      "dept_id": "妇科",
+      "dept_name": "妇科",
+      "dept_intro": "",
+      "doc_count": 1
+    }
+  ]
+}
