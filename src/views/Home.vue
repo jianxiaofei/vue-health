@@ -11,11 +11,11 @@
 </template>
 
 <script>
-    import pageHead from '../components/common/Head'
-    import Search from '../components/home/MySearch'
-    import MySwipe from '../components/home/MySwipe'
-    import ClassBtn from '../components/home/ClassBtn'
-    import VideoList from '../components/home/VideoList'
+    import pageHead from '@c/common/Head'
+    import Search from '@c/home/MySearch'
+    import MySwipe from '@c/home/MySwipe'
+    import ClassBtn from '@c/home/ClassBtn'
+    import VideoList from '@c/home/VideoList'
     import { Sticky } from 'vant'
 
     export default {
