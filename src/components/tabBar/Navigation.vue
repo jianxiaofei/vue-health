@@ -1,6 +1,6 @@
 <template>
     <nav v-if="isShowTabBar">
-        <router-link to="/">
+        <router-link to="/Home">
             <Icon name="wap-home"/>
             首页
         </router-link>
@@ -31,6 +31,7 @@ export default ({
     components: { Icon },
     methods: {
         inputHideTabBar (routePage) {
+            console.log(routePage, 123)
             const resizePage = ['Home', 'HealthTest'] // 存在输入框的路由
             const that = this
             if (resizePage.includes(routePage)) {
@@ -50,6 +51,7 @@ export default ({
                 'InputData',
                 'MemberManage',
                 'About',
+                'Splash',
                 'EditMember'
             ]
             this.isShowTabBar = !(allFullscreenPage.includes(routeName))

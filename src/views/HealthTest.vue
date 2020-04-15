@@ -54,9 +54,6 @@ export default {
 
         .container
             height 88vh
-            display flex
-            align-content space-between
-            flex-direction column
 
             .input-tip
                 font-size 5vw
@@ -69,7 +66,6 @@ export default {
                 border 1px solid $commColor
                 background-color #fff
                 border-radius 100vh
-
             button
                 margin 4vw auto
                 width 40vw

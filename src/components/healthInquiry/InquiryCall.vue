@@ -105,5 +105,5 @@ export default {
         .close-line
             width 16vw
             height 16vw
-            margin-top 55vw
+            margin-top 50vw
 </style>
