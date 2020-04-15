@@ -1,5 +1,5 @@
 <template>
-    <div id="inquiring" v-if="line">
+    <div id="inquiring">
         <div class="doctor-camera">
             <img src="https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg" alt="">
         </div>
@@ -9,67 +9,67 @@
         </div>
         <div class="button-action">
             <Icon size="50" name="expand"/>
-            <img @click="closeLine" class="close-line" src="../assets/close-line.png" alt="">
+            <img @click="closeLine" class="close-line" src="@assets/img/close-line.png" alt="">
             <Icon size="50" name="volume"/>
         </div>
         <div class="inquiry-time">
-            <span>问诊时长：{{!(this.hour>9) ? '0'+this.hour : this.hour}}</span>
-            <span>:{{!(this.minute>9) ? '0'+this.minute : this.minute}}</span>
-            <span>:{{!(this.second>9) ? '0'+this.second : this.second}}</span>
+            <span>问诊时长：{{formatTime(this.hour)}}</span>
+            <span>:{{formatTime(this.minute)}}</span>
+            <span>:{{formatTime(this.second)}}</span>
         </div>
     </div>
 </template>
 
 <script>
-    import { Icon } from 'vant'
+import { Icon } from 'vant'
 
-    export default {
-        name: 'Inquiring',
-        props: [],
-        components: { Icon },
-        data () {
-            return {
-                line: true,
-                hour: 0,
-                minute: 0,
-                second: 0
+export default {
+    name: 'Inquiring',
+    props: [],
+    components: { Icon },
+    data () {
+        return {
+            hour: 0,
+            minute: 0,
+            second: 0
+        }
+    },
+    methods: {
+        closeLine () {
+            this.$toast('问诊结束~')
+            this.$router.go(-1)
+        },
+        formatTime (time) {
+            return +time < 10 ? `0${time}` : time
+        }
+    },
+    beforeMount () {
+        // this.isInquiring = this.$route.params.isOnLine
+    },
+    mounted () {
+        var that = this
+        setInterval(function () {
+            that.second++
+        }, 1000)
+    },
+    watch: {
+        second (newSecond) {
+            if (newSecond === 60) {
+                this.second = 0
+                this.minute += 1
             }
         },
-        methods: {
-            closeLine () {
-                this.$toast('问诊结束~')
-                this.line = false
-                this.$router.go(-1)
-            }
-        },
-        beforeMount () {
-            this.line = this.$route.params.isConnected
-        },
-        mounted () {
-            var that = this
-            setInterval(function () {
-                that.second++
-            }, 1000)
-        },
-        watch: {
-            second (newSecond) {
-                if (newSecond === 60) {
-                    this.second = 0
-                    this.minute += 1
-                }
-            },
-            minute (newMinute) {
-                if (newMinute === 60) {
-                    this.minute = 0
-                    this.hour += 1
-                }
+        minute (newMinute) {
+            if (newMinute === 60) {
+                this.minute = 0
+                this.hour += 1
             }
         }
     }
+}
 </script>
 <style lang="stylus" scoped>
     .doctor-camera
-
         img
             width: 100vw
             height 100vh

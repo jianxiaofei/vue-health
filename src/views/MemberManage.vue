@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import pageHead from '../components/common/Head'
+    import pageHead from '@c/common/Head'
 
     export default {
         name: 'MemberManage',
@@ -82,7 +82,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "../assets/stylus/color.styl"
+    @import "~@stylus/color.styl"
 
     .page
         height 100vh

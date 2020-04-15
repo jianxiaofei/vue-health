@@ -82,7 +82,7 @@
 
 <script>
     import { Field, Button, Popup, Picker, DatetimePicker } from 'vant'
-    import pageHead from '../components/common/Head'
+    import pageHead from '@c/common/Head'
     export default {
         name: 'InputData',
         props: [],
@@ -179,7 +179,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "../assets/stylus/color.styl"
+    @import "~@stylus/color.styl"
     .page
         height 100vh
         background-color $bgTheme

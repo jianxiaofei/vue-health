@@ -25,7 +25,7 @@
 
 <script>
     import { SwipeCell, Card, Button } from 'vant'
-    import pageHead from '../components/common/Head'
+    import pageHead from '@c/common/Head'
 
     export default {
         name: 'MyCollect',

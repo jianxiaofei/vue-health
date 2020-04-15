@@ -1,65 +1,65 @@
 <template>
     <Popup
-        v-model="show"
-        position="bottom"
-        :style="{ height: '100%' }">
-        <img class="doctor-picture" v-lazy="lineDoctor.img" :key="lineDoctor.id">
-        <p class="doctor-name">{{lineDoctor.name}}</p>
+            v-model="show"
+            position="bottom">
+        <img class="doctor-picture" v-lazy="lineDoctor.avatar_url" :key="lineDoctor.doc_id">
+        <p class="doctor-name">{{lineDoctor.doc_name}}</p>
         <p class="line-tip">温馨提示：正在接通中，请稍等 <span class="dot"></span></p>
-        <img @click="closeLine" class="close-line" src="../../assets/close-line.png" alt="">
+        <img @click="closeLine" class="close-line" src="~@assets/img/close-line.png" alt="">
     </Popup>
 </template>
 
 <script>
-    import { Popup } from 'vant'
+import { Popup } from 'vant'
 
-    export default {
-        name: 'online',
-        components: { Popup },
-        props: {
-            showOnline: {
-                type: Boolean,
-                default: false
-            },
-            lineDoctor: {
-                type: Object
-            }
+export default {
+    name: 'online',
+    components: { Popup },
+    props: {
+        showOnline: {
+            type: Boolean,
+            default: false
         },
-        data () {
-            return {
-                show: false
-            }
+        lineDoctor: {
+            type: Object
+        }
+    },
+    data () {
+        return {
+            show: false
+        }
+    },
+    methods: {
+        closeLine () {
+            this.$toast('取消问诊~')
+            this.show = false
         },
-        methods: {
-            closeLine () {
-                this.$toast('取消问诊~')
-                this.show = false
-            },
-            isConnected () {
-                this.$router.push({
-                    name: 'Inquiring',
-                    params: { isConnected: true }
-                })
-            }
-        },
-        watch: {
-            showOnline () {
-                this.show = true
-                setTimeout(this.isConnected, 6000)
-            }
+        isConnected (_new) {
+            if (!this.show) return
+            this.$router.push({
+                name: 'Inquiring'
+            })
+        }
+    },
+    watch: {
+        showOnline () {
+            this.show = true
+            setTimeout(this.isConnected, 6000)
         }
     }
+}
 </script>
 
 <style lang="stylus" scoped>
     .van-popup
+        height 100vh
+        line-height 0
         display flex
         flex-direction column
         justify-content center
         align-items center
         background-color #1989fa
         color #fff
-        line-height 0
 
         .doctor-picture
             width 27vw

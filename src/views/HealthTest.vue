@@ -24,7 +24,7 @@
 
 <script>
     import { Field, Button } from 'vant'
-    import pageHead from '../components/common/Head'
+    import pageHead from '@c/common/Head'
 
     export default {
         name: 'Index',
@@ -44,7 +44,7 @@
 
 <style lang="stylus" scoped>
 
-    @import "../assets/stylus/color.styl"
+    @import "~@stylus/color.styl"
     $commColor = #4b70ea
 
     .page

@@ -21,8 +21,8 @@
 
 <script>
     import { Button } from 'vant'
-    import TopArea from '../components/healthInquiry/TopArea'
-    import DoctorList from '../components/healthInquiry/DoctorList'
+    import TopArea from '@c/healthInquiry/TopArea'
+    import DoctorList from '@c/healthInquiry/DoctorList'
     import axios from 'axios'
     export default {
         name: 'HealInquiry',
@@ -96,9 +96,14 @@
             padding 6pt 5pt
 
             .van-button
-                min-width 18vw
-                height 40px
-                margin 1vw 0.6vw
+                max-width 21vw
+                height 4.5vh
+                line-height 4.5vh
+                margin 1vw 0.5vw
+                padding 0 1.7vw
+                overflow-x hidden
+                text-overflow ellipsis
+                white-space nowrap
 
             .selected
                 color #1989fa

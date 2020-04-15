@@ -1,10 +1,10 @@
 <template>
     <div id="doctor-wrap">
         <div
-            v-for="(v,k) of data"
-            :key="k"
-            @click="showDetail(v)"
-            class="doctor-item">
+                v-for="(v,k) of data"
+                :key="k"
+                @click="showDetail(v)"
+                class="doctor-item">
             <img class="doctor-picture" :src="v.avatar_url" alt="">
             <div class="doctor-intro">
                 <p>
@@ -16,7 +16,7 @@
                     <span class="doctor-dept">{{v.department}}</span>
                 </p>
                 <p><span class="doctor-posn">{{v.job_title}}</span></p>
-                <input type="button" :value="+v.online_state===3?'在线':+v.online_state===2?'忙碌':'离线'">
+                <input type="button" :value="getDoctorIsOnLine(v)">
             </div>
         </div>
         <DoctorDetails :doctor="doctorData" :isShow="show"/>
@@ -25,29 +25,33 @@
 </template>
 
 <script>
-    import DoctorDetails from './DoctorDetails'
+import DoctorDetails from './DoctorDetails'
 
-    export default {
-        name: 'doctors',
-        components: { DoctorDetails },
-        props: {
-            data: {
-                type: Array
-            }
+export default {
+    name: 'doctors',
+    components: { DoctorDetails },
+    props: {
+        data: {
+            type: Array
+        }
+    },
+    data () {
+        return {
+            show: false,
+            doctorData: {}
+        }
+    },
+    methods: {
+        showDetail (v) {
+            this.doctorData = v
+            this.show = !this.show
         },
-        data () {
-            return {
-                show: false,
-                doctorData: {}
-            }
-        },
-        methods: {
-            showDetail (v) {
-                this.doctorData = v
-                this.show = !this.show
-            }
+        getDoctorIsOnLine (v) {
+            const lineCount = +v.online_state
+            return lineCount === 3 ? '在线' : lineCount === 2 ? '忙碌' : '离线'
         }
     }
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -61,19 +65,19 @@
             border-radius 10pt
             background-color #fff
             margin 1.5vw 2.2vw 1.5vw 2.2vw
-            padding 8pt 2pt 8pt 10pt
+            padding 1vh 2vw
 
             img.doctor-picture
-                width 30vw
-                height 30vw
+                width 25vw
+                height 25vw
                 border-radius 100%
-                margin-right 5pt
+                margin-right 1.2vw
 
             .doctor-intro
                 text-align left
 
                 p
-                    margin 1.6vw
+                    margin 1.2vw
                     font-size 3.3vw
                     word-break keep-all
 
@@ -100,10 +104,11 @@
                 input
                     padding 0 6pt
                     border-radius 100pt
-                    background-color #01d0a0
                     color #fff
                     border none
                     outline none
+                    font-size 3.3vw
+                    background-color #01d0a0
 
                 input
                     &[value='在线']

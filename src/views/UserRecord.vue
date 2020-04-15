@@ -18,13 +18,13 @@
 
 <script>
     import { Icon } from 'vant'
-    import TestMember from '../components/healthTest/TestMember'
-    import TestRecord from '../components/healthTest/TestRecord'
-    import TestImgHelp from '../components/healthTest/TestImgHelp'
-    import DataArchive from '../components/healthInquiry/DataArchive'
-    import InquiryMember from '../components/healthInquiry/InquiryMember'
-    import InquiryRecord from '../components/healthInquiry/InquiryRecord'
-    import InquiryDetail from '../components/healthInquiry/InquiryDetail'
+    import TestMember from '@c/healthTest/TestMember'
+    import TestRecord from '@c/healthTest/TestRecord'
+    import TestImgHelp from '@c/healthTest/TestImgHelp'
+    import DataArchive from '@c/healthInquiry/DataArchive'
+    import InquiryMember from '@c/healthInquiry/InquiryMember'
+    import InquiryRecord from '@c/healthInquiry/InquiryRecord'
+    import InquiryDetail from '@c/healthInquiry/InquiryDetail'
 
     export default {
         name: 'UserRecord',
@@ -107,7 +107,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "../assets/stylus/color.styl"
+    @import "~@stylus/color.styl"
     .page
         height 100vh
         background-color $bgTheme

@@ -2,7 +2,7 @@
     <div id="vip-card">
         <canvas id="cav"></canvas>
         <p class="card-info">
-            <img class="logo" src="../../assets/logo.png" alt="">
+            <img class="logo" src="@assets/img/logo.png" alt="">
             <span class="van-col--3">39健康用户</span>
             <span class="van-col--2">VIP 会员</span>
             <span class="van-col--6" @click="openVip">点击开通>></span>

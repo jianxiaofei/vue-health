@@ -64,7 +64,8 @@
     })
 </script>
 <style lang="stylus">
-    @import "assets/stylus/color.styl"
+    // CSS loader 会把把非根路径的url解释为相对路径， 加~前缀才会解释成模块路径。
+    @import "~@stylus/color.styl"
     #app
         font-family Avenir, Helvetica, Arial, sans-serif
         -webkit-font-smoothing antialiased

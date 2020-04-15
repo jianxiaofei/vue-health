@@ -46,7 +46,7 @@
 
 <script>
     import { Image, Icon, Divider } from 'vant'
-    import VipCard from '../components/myFmily/VipCard'
+    import VipCard from '@c/myFmily/VipCard'
 
     export default {
         name: 'index',
@@ -69,7 +69,7 @@
 
 </script>
 <style lang="stylus" scoped>
-    @import "../assets/stylus/color.styl"
+    @import "~@stylus/color.styl"
     .my-family-page
         background $bgTheme
         height 100vh

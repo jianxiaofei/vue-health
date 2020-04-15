@@ -18,7 +18,7 @@
 
 <script>
     import { Image, Icon } from 'vant'
-    import pageHead from '../components/common/Head'
+    import pageHead from '@c/common/Head'
 
     export default {
         name: 'VideoClass',

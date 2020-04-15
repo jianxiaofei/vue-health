@@ -2,12 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
+import axios from 'axios'
 import { Toast, Dialog, Lazyload } from 'vant'
+
 Vue.use(Toast)
 Vue.use(Dialog)
 Vue.use(Lazyload)
 Vue.config.productionTip = false
-
+Vue.prototype.axios = axios
 sessionStorage.setItem('UserInfo', JSON.stringify({
   name: '窃瓦辛格',
   sex: '男',
@@ -15,9 +17,9 @@ sessionStorage.setItem('UserInfo', JSON.stringify({
   isVip: 1
 }))
 new Vue({
-    router,
-    render: h => h(App),
-    months: {}
+  router,
+  render: h => h(App),
+  months: {}
 }).$mount('#app')
 
 //  window.document.addEventListener('deviceready', function () {

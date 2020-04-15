@@ -2,7 +2,7 @@
     <div class="page">
         <page-head title="关于我们" back-page-name="MyFamily"/>
         <main>
-            <img src="../assets/logo.png" alt="">
+            <img src="@assets/img/logo.png">
             <p>39健康</p>
             <p>版本号 0.7.9</p>
             <p>客服联系电话：400-063-3138</p>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import pageHead from '../components/common/Head'
+    import pageHead from '@c/common/Head'
 
     export default {
         name: 'About',
@@ -25,7 +25,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "../assets/stylus/color.styl"
+    @import "~@stylus/color.styl"
     .page
         background-color #fff
         height 94.5vh
