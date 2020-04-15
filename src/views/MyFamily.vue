@@ -69,7 +69,7 @@
 
 </script>
 <style lang="stylus" scoped>
-    @import "~@stylus/color.styl"
+    @import "~@stylus/common.styl"
     .my-family-page
         background $bgTheme
         height 100vh

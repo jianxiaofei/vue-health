@@ -25,7 +25,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "~@stylus/color.styl"
+    @import "~@stylus/common.styl"
     .page
         background-color #fff
         height 94.5vh

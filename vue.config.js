@@ -21,7 +21,7 @@ module.exports = {
     },
     devServer: {
         /* 本地ip地址 */
-        host: 'localhost',
+        // host: '10.254.58.201',
         port: '8088',
         hot: true,
         /* 自动打开浏览器 */
@@ -34,7 +34,7 @@ module.exports = {
         proxy: {
             '/api': {
                 /* 目标代理服务器地址 */
-                target: 'http://localhost:8088', //
+                target: '10.254.58.201:8088', //
                 /* 允许跨域 */
                 changeOrigin: true,
                 ws: true,

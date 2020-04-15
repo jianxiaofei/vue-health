@@ -4,8 +4,7 @@
                 v-model="value"
                 shape="round"
                 @search="onSearch"
-                placeholder="请输入搜索关键词"
-        />
+                placeholder="请输入搜索关键词"/>
     </form>
 </template>
 
@@ -13,18 +12,18 @@
 import { Search } from 'vant'
 
 export default {
-  name: 'MySearch',
-  components: { Search },
-  data: function () {
-    return {
-      value: ''
+    name: 'MySearch',
+    components: { Search },
+    data: function () {
+        return {
+            value: ''
+        }
+    },
+    methods: {
+        onSearch (val) {
+            this.$toast(val)
+        }
     }
-  },
-  methods: {
-    onSearch (val) {
-      this.$toast(val)
-    }
-  }
 }
 </script>
 

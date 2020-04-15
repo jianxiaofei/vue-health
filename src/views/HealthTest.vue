@@ -3,9 +3,10 @@
         <page-head title="健康检测"/>
         <div class="container">
             <p class="input-tip">请输入拉雅健康仪的IMEI号</p>
-            <Field clearable autofocus border
+            <Field clearable border
                    v-model="value"
                    type="digit"
+                   input-align="center"
                    placeholder="请输入数字号码"/>
             <div class="btn-wrap">
                 <Button round block type="info" native-type="submit" text="下一步"/>
@@ -23,55 +24,57 @@
 </template>
 
 <script>
-    import { Field, Button } from 'vant'
-    import pageHead from '@c/common/Head'
+import { Field, Button } from 'vant'
+import pageHead from '@c/common/Head'
 
-    export default {
-        name: 'Index',
-        components: {
-            Field,
-            Button,
-            pageHead
-        },
-        data () {
-            return {
-                value: ''
-            }
-        },
-        methods: {}
-    }
+export default {
+    name: 'Index',
+    components: {
+        Field,
+        Button,
+        pageHead
+    },
+    data () {
+        return {
+            value: ''
+        }
+    },
+    methods: {}
+}
 </script>
 
 <style lang="stylus" scoped>
 
-    @import "~@stylus/color.styl"
+    @import "~@stylus/common.styl"
     $commColor = #4b70ea
-
     .page
         height 100vh
         overflow hidden
         background-color $bgTheme
+
         .container
             height 88vh
-            display grid
+            display flex
             align-content space-between
+            flex-direction column
+
             .input-tip
                 font-size 5vw
+
             .van-field
-                width auto
-                height 6vh
-                line-height 6vh
+                width 80vw
+                padding 2vw
                 align-items center
-                margin 3vh 8vw
+                margin 6vw auto
                 border 1px solid $commColor
                 background-color #fff
                 border-radius 100vh
 
             button
-                margin 2vh auto
+                margin 4vw auto
                 width 40vw
-                height 5vh
-                line-height 5vh
+                height 9vw
+                line-height 9vw
                 font-size 4.5vw
 
                 &[type='submit']
@@ -84,7 +87,7 @@
 
             .warm-tip
                 font-size 4vw
-                margin 3.8vh 8vw
+                margin 8vw 8vw
                 text-align left
 
                 p.get-device-way span

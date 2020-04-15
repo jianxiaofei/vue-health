@@ -107,7 +107,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "~@stylus/color.styl"
+    @import "~@stylus/common.styl"
     .page
         height 100vh
         background-color $bgTheme
