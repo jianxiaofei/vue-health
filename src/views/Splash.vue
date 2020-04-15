@@ -37,6 +37,11 @@
                         id: 102,
                         routeName: 'Home',
                         imgUrl: 'splash-2.gif'
+                    },
+                    {
+                        id: 102,
+                        routeName: 'Home',
+                        imgUrl: 'splash-3.jpg'
                     }
                 ]
             }
