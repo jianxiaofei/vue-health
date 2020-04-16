@@ -52,7 +52,8 @@ export default ({
                 'MemberManage',
                 'About',
                 'Splash',
-                'EditMember'
+                'EditMember',
+                'MySearch'
             ]
             this.isShowTabBar = !(allFullscreenPage.includes(routeName))
         }

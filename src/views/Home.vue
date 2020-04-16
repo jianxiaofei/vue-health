@@ -2,7 +2,7 @@
     <div class="home">
         <page-head title="首页"/>
         <Sticky :offset-top="10">
-            <Search class="sticky-top"/>
+            <Search shape="round" @focusin="goSearch" placeholder="请输入搜索关键词"/>
         </Sticky>
         <MySwipe :data="swipeData"/>
         <ClassBtn :data="btnName"/>
@@ -12,22 +12,21 @@
 
 <script>
     import pageHead from '@c/common/Head'
-    import Search from '@c/home/MySearch'
     import MySwipe from '@c/home/MySwipe'
     import ClassBtn from '@c/home/ClassBtn'
     import VideoList from '@c/home/VideoList'
-    import { Sticky } from 'vant'
+    import { Sticky, Search } from 'vant'
     import axios from 'axios'
 
     export default {
-        name: 'Index',
+        name: 'Home',
         components: {
             pageHead,
             Sticky,
-            Search,
             MySwipe,
             ClassBtn,
-            VideoList
+            VideoList,
+            Search
         },
         data () {
             return {
@@ -35,6 +34,13 @@
                 btnName: [],
                 swipeData: [],
                 videoListData: []
+            }
+        },
+        methods: {
+            goSearch () {
+                this.$router.push({
+                    name: 'MySearch'
+                })
             }
         },
         beforeMount () {
@@ -49,6 +55,17 @@
     }
 </script>
 <style lang="stylus" scoped>
+    .van-search
+        padding-top 0
+        background-color transparent
+        .van-search__content
+            border 1pt solid #ccc
+            border-radius 100vw
+            text-align left
+            font-size 14pt
+            background-color rgba(255, 255, 255, 0.48)
+            box-shadow 3pt 3pt 2pt 0 rgba(204, 204, 204, 0.29)
+
     #swipe
         .van-swipe__indicators i
             width 6pt
