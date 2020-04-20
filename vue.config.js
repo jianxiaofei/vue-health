@@ -34,7 +34,7 @@ module.exports = {
         proxy: {
             '/api': {
                 /* 目标代理服务器地址 */
-                target: '10.254.58.201:8088', //
+                target: '127.0.0.1:8088', //
                 /* 允许跨域 */
                 changeOrigin: true,
                 ws: true,

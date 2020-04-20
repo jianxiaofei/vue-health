@@ -47,6 +47,7 @@
 <script>
     import { Image, Icon, Divider } from 'vant'
     import VipCard from '@c/myFmily/VipCard'
+    import $back from '@r/js/phoneBackButton'
 
     export default {
         name: 'index',
@@ -63,7 +64,11 @@
             }
         },
         beforeMount () {
+            $back.listen($back.doubleClick)
             this.UserInfo = JSON.parse(sessionStorage.getItem('UserInfo'))
+        },
+        destroyed () {
+            $back.remove($back.doubleClick)
         }
     }
 

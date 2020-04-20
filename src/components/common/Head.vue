@@ -28,11 +28,12 @@
 </script>
 
 <style lang="stylus" scoped>
+    @import "~@stylus/common.styl"
     .page-head
         display flex
         align-items center
         width 100vw
-        background #fff
+        background $bgTheme
         font-size 5.2vw
         height 10vw
         .back-arrow

@@ -3,9 +3,10 @@
         <CountDown class="count-down"
                    format="ss"
                    :time="time"
+                   @click="openHome"
                    @finish="finish"/>
         <Swipe :autoplay="swipeOnceTime">
-            <SwipeItem @click="jump(val)" v-for="(val, idx) in data" :key="idx">
+            <SwipeItem v-for="(val, idx) in data" :key="idx">
                 <img class="splash-img" :src="require(`@assets/img/${val.imgUrl}`)" :key="idx"/>
             </SwipeItem>
         </Swipe>
@@ -49,18 +50,14 @@
         methods: {
             finish () {
                 this.swipeOnceTime = null
-                this.$toast('倒计时结束')
-                this.jump({ routeName: 'Home' })
+                this.openHome()
             },
-            jump (val) {
-                console.log(val)
+            openHome (val) {
                 this.$router.push({
-                    name: val.routeName,
+                    name: 'Home',
                     params: { val }
                 })
             }
-        },
-        mounted () {
         }
     }
 </script>

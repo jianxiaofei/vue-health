@@ -17,6 +17,7 @@
     import VideoList from '@c/home/VideoList'
     import { Sticky, Search } from 'vant'
     import axios from 'axios'
+    import $back from '@r/js/phoneBackButton'
 
     export default {
         name: 'Home',
@@ -44,6 +45,7 @@
             }
         },
         beforeMount () {
+            $back.listen($back.doubleClick)
             axios.get('data/home').then(data => {
                 data = data.data.data.entry_list
                 this.data = data
@@ -51,6 +53,9 @@
                 this.btnName = data[1].item_data.map(item => JSON.parse(item.inner_parameters).title)
                 this.videoListData = data[2].item_data
             })
+        },
+        destroyed () {
+            $back.remove($back.doubleClick)
         }
     }
 </script>
@@ -58,6 +63,7 @@
     .van-search
         padding-top 0
         background-color transparent
+
         .van-search__content
             border 1pt solid #ccc
             border-radius 100vw

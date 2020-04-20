@@ -24,6 +24,7 @@
     import TopArea from '@c/healthInquiry/TopArea'
     import DoctorList from '@c/healthInquiry/DoctorList'
     import axios from 'axios'
+
     export default {
         name: 'HealInquiry',
         data () {

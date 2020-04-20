@@ -24,23 +24,23 @@
 </template>
 
 <script>
-import { Field, Button } from 'vant'
-import pageHead from '@c/common/Head'
+    import { Field, Button } from 'vant'
+    import pageHead from '@c/common/Head'
 
-export default {
-    name: 'Index',
-    components: {
-        Field,
-        Button,
-        pageHead
-    },
-    data () {
-        return {
-            value: ''
-        }
-    },
-    methods: {}
-}
+    export default {
+        name: 'Index',
+        components: {
+            Field,
+            Button,
+            pageHead
+        },
+        data () {
+            return {
+                value: ''
+            }
+        },
+        methods: {}
+    }
 </script>
 
 <style lang="stylus" scoped>
@@ -66,6 +66,7 @@ export default {
                 border 1px solid $commColor
                 background-color #fff
                 border-radius 100vh
+
             button
                 margin 4vw auto
                 width 40vw
