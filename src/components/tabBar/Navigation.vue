@@ -60,8 +60,12 @@
             setAndroidStatusBar () {
                 // cordova插件会定义一个StatusBar对象，当它只能在deviceready后才能使用
                 if (cordova.platformId === 'android') { // 安卓需要特殊处理，参见 cordova 官方文档
+                    // 状态栏是否覆盖app（有效果）
                     StatusBar.overlaysWebView(true)
-                    StatusBar.setStatusBarStyle('#000000');
+                    // 状态栏背景色（无效果）
+                    // StatusBar.backgroundColorByHexString('#000000');
+                    // 状态栏字体（无效果）
+                    StatusBar.setStatusBarStyle('#000000')
                 }
             }
         },
