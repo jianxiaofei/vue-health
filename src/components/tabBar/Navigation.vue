@@ -20,7 +20,7 @@
 </template>
 <script>
     import { Icon } from 'vant'
-    import $back from '@r/js/phoneBackButton'
+    import $back from '@r/assets/js/phoneBackButton'
 
     export default ({
         name: 'Navigation',

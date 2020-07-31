@@ -47,7 +47,7 @@
 <script>
     import { Image, Icon, Divider } from 'vant'
     import VipCard from '@c/myFmily/VipCard'
-    import $back from '@r/js/phoneBackButton'
+    import $back from '@r/assets/js/phoneBackButton'
 
     export default {
         name: 'index',

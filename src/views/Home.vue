@@ -17,7 +17,7 @@
     import VideoList from '@c/home/VideoList'
     import { Sticky, Search } from 'vant'
     import axios from 'axios'
-    import $back from '@r/js/phoneBackButton'
+    import $back from '@r/assets/js/phoneBackButton'
 
     export default {
         name: 'Home',
